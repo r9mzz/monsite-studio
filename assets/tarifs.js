@@ -16,5 +16,5 @@ var OPTIONS = [
 ];
 var DEFAULT_FORMULE = 'complet';
 // Adresse qui reçoit les demandes (vide = bouton e-mail caché)
-var MS_MAIL = '';
+var MS_MAIL = 'contactmonsite.studio@gmail.com';
 /* ===================================================================== */

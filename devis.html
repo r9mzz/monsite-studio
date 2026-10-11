@@ -99,11 +99,12 @@
     <div class="done" id="done" hidden>
       <span class="mono">Demande prête</span>
       <h3>Merci <span id="done-name"></span> ! <span class="serif accent">À très vite.</span></h3>
-      <p style="color:var(--muted)">Envoie-nous ce récapitulatif en message sur Instagram. On te répond avec une idée claire et le prix exact.</p>
+      <p style="color:var(--muted)">Envoie-nous ce récapitulatif <span id="via">en message sur Instagram</span>. On te répond avec une idée claire et le prix exact.</p>
       <pre id="recap"></pre>
       <div class="hero-actions">
         <button class="btn btn-light" type="button" id="copy" style="border:0;cursor:pointer">Copier le récap</button>
         <a class="btn btn-line" href="https://ig.me/m/monsite.studio" target="_blank" rel="noopener">Ouvrir Instagram <span class="arrow">→</span></a>
+        <a class="btn btn-line" id="mail" href="#" hidden>Envoyer par e-mail <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -137,6 +138,8 @@ var OPTIONS = [
   { id: 'domaine', nom: 'Adresse + hébergement', desc: 'Ton nom de domaine et l’hébergement.', prix: null }
 ];
 var DEFAULT_FORMULE = 'complet';
+// Adresse qui reçoit les demandes (vide = bouton e-mail caché)
+var MS_MAIL = '';
 /* ===================================================================== */
 
 (function () {
@@ -204,6 +207,12 @@ var DEFAULT_FORMULE = 'complet';
       'Contact : ' + v('contact') + (v('message') ? '\nMessage : ' + v('message') : '');
     document.getElementById('recap').textContent = recap;
     document.getElementById('done-name').textContent = v('prenom');
+    var mail = document.getElementById('mail');
+    if (MS_MAIL) {
+      mail.href = 'mailto:' + MS_MAIL + '?subject=' + encodeURIComponent('Demande de devis · ' + v('commerce')) + '&body=' + encodeURIComponent(recap);
+      mail.hidden = false;
+      document.getElementById('via').textContent = 'en message sur Instagram ou par e-mail';
+    }
     var done = document.getElementById('done');
     done.hidden = false;
     done.scrollIntoView({ behavior: 'smooth', block: 'start' });

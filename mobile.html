@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mon Site Studio</title>
+<meta name="description" content="Mon Site Studio crée des sites qui donnent envie pour les commerçants, artisans et indépendants. Estimation gratuite.">
+<meta name="theme-color" content="#0B0B0D">
+<script>(function(){try{var q=location.search,s=sessionStorage;if(/[?&]v=app/.test(q))s.setItem('ms-v','app');if(/[?&]v=site/.test(q))s.setItem('ms-v','site');var v=s.getItem('ms-v');if(v==='app')return;var phone=matchMedia('(max-width: 760px)').matches||(matchMedia('(pointer: coarse)').matches&&matchMedia('(max-width: 1024px)').matches);if(!phone||v==='site'){var to={'#devis':'devis.html','#creations':'realisations.html'}[location.hash]||'./';location.replace(to+(to==='./'?location.hash:''));}}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/mobile.css">
+</head>
+<body>
+
+<header class="top" id="top">
+  <a class="logo" href="#accueil" aria-label="Mon Site Studio, accueil">monsite<i>.</i>studio</a>
+  <a class="pill-btn" href="#devis">Devis gratuit</a>
+</header>
+
+<main>
+  <!-- ACCUEIL -->
+  <section class="hero" id="accueil">
+    <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span>
+    <div class="pad">
+      <p class="mono kicker">Sites pour commerçants et indépendants</p>
+      <h1 class="h1">
+        <span class="ln"><span>Des sites qui</span></span>
+        <span class="ln"><span>donnent <span class="serif accent">envie<svg class="swash" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 10"/></svg></span></span></span>
+        <span class="ln"><span>de cliquer.</span></span>
+      </h1>
+      <p class="lead">On crée le site de ton commerce. Beau, rapide et parfait sur téléphone.</p>
+      <div class="hero-cta">
+        <a class="btn btn-light block" href="#devis">Estimer mon site <span class="arrow">→</span></a>
+        <a class="btn btn-line block" href="#creations">Voir nos créations</a>
+      </div>
+    </div>
+    <div class="device">
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><i></i><div class="url">🔒&nbsp;<b id="dev-url">sweetdelices.fr</b></div></div>
+        <div class="screen" id="screen"></div>
+      </div>
+      <div class="dev-cap"><span class="mono" id="dev-cap">Sweet Délices · client</span><span class="dots" id="dots"></span></div>
+    </div>
+    <div class="marquee" aria-hidden="true"><div class="track">
+      <span>Traiteurs</span><em>✦</em><span>Barbiers</span><em>✦</em><span>Onglerie</span><em>✦</em><span>Fleuristes</span><em>✦</em><span>Boulangeries</span><em>✦</em><span>Artisans</span><em>✦</em><span>Créateurs</span><em>✦</em>
+      <span>Traiteurs</span><em>✦</em><span>Barbiers</span><em>✦</em><span>Onglerie</span><em>✦</em><span>Fleuristes</span><em>✦</em><span>Boulangeries</span><em>✦</em><span>Artisans</span><em>✦</em><span>Créateurs</span><em>✦</em>
+    </div></div>
+  </section>
+
+  <!-- CE QU'ON FAIT -->
+  <section class="sec" aria-labelledby="t-fait">
+    <div class="pad">
+      <p class="mono label rv">Ce qu’on fait</p>
+      <h2 class="h2 rv" id="t-fait">Tout pour que tes clients <span class="serif accent">passent</span> à l’action.</h2>
+    </div>
+    <div class="swipe" id="sw-do">
+      <article class="do rv"><span class="n">01</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M14 25h4"/></svg><h3>Le site</h3><p>Un site à ton image, pensé d’abord pour le téléphone : tes produits, tes prix, tes photos.</p></article>
+      <article class="do rv d1"><span class="n">02</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6h3l3 15h14l3-10H9"/><circle cx="12" cy="26" r="1.6"/><circle cx="22" cy="26" r="1.6"/></svg><h3>Les commandes</h3><p>Tes clients commandent, réservent ou demandent un devis directement sur le site.</p></article>
+      <article class="do rv d2"><span class="n">03</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l3.7 8 8.3.8-6.3 5.6 1.9 8.3L16 21.4 8.4 25.7l1.9-8.3L4 11.8l8.3-.8z"/></svg><h3>La visibilité</h3><p>Visible sur Google, lien dans ta bio Instagram, beau à partager.</p></article>
+    </div>
+    <div class="swipe-hint" data-for="sw-do"><span class="mono">Glisse</span><span class="track"><i></i></span></div>
+  </section>
+
+  <!-- CRÉATIONS -->
+  <section class="sec" id="creations" aria-labelledby="t-crea">
+    <div class="pad">
+      <p class="mono label rv">Créations</p>
+      <h2 class="h2 rv" id="t-crea">Ce qu’on <span class="serif accent">sait</span> faire.</h2>
+      <p class="lead rv">Un vrai projet client, et des concepts pour montrer comment on adapte le style à chaque commerce.</p>
+    </div>
+
+    <article class="case clip">
+      <div class="case-cover">
+        <img src="img/sd-cookies-box.jpg" alt="Box de cookies de Sweet Délices" id="sd-cover">
+        <div class="over"><h3>Sweet<br>Délices</h3><span class="tag real">Client</span></div>
+      </div>
+      <div class="case-body">
+        <p>Traiteur et pâtissier fait maison : canette cakes, cookies garnis et buffets pour les mariages et les fêtes.</p>
+        <div class="chips"><span>Design complet</span><span>Carte avec prix</span><span>Commande par message</span><span>Devis événements</span></div>
+        <a class="btn btn-light block" href="https://r9mzz.github.io/sweet_delices/" target="_blank" rel="noopener">Voir le site en ligne <span class="arrow">↗</span></a>
+      </div>
+    </article>
+    <div class="swipe shots" id="sw-shots">
+      <div class="shot phone rv"><img src="img/sd-telephone.jpg" alt="Site Sweet Délices sur téléphone" loading="lazy"></div>
+      <div class="shot wide rv d1"><img src="img/sd-ordinateur.jpg" alt="Page d’accueil de Sweet Délices sur ordinateur" loading="lazy"></div>
+      <div class="shot wide rv d2"><img src="img/sd-carte.jpg" alt="La carte du site Sweet Délices" loading="lazy"></div>
+    </div>
+
+    <div class="pad" style="margin-top:56px">
+      <p class="mono label rv">Concepts</p>
+      <h3 class="h2 rv" style="font-size:clamp(30px,8.6vw,38px)">Un style pour <span class="serif accent">chaque</span> métier.</h3>
+      <p class="lead rv">Ces commerces sont imaginés, pour te montrer la variété des styles qu’on peut créer pour toi.</p>
+    </div>
+    <div class="swipe" id="sw-concepts">
+      <a class="concept rv" href="#devis"><div class="frame" data-mini="nails"></div><div class="meta"><h3>Ongles Lina</h3><span class="tag">Concept</span></div><p>Doux et élégant, prise de rendez-vous en avant.</p></a>
+      <a class="concept rv d1" href="#devis"><div class="frame" data-mini="barber"></div><div class="meta"><h3>K. Barber</h3><span class="tag">Concept</span></div><p>Brut et direct, réservation en un clic.</p></a>
+      <a class="concept rv d2" href="#devis"><div class="frame" data-mini="flowers"></div><div class="meta"><h3>Fleurs d’Amel</h3><span class="tag">Concept</span></div><p>Frais et vivant, livraison mise en avant.</p></a>
+      <a class="concept rv" href="#devis"><div class="frame" data-mini="bakery"></div><div class="meta"><h3>Le Fournil de Nour</h3><span class="tag">Concept</span></div><p>Chaleureux et artisanal, commande pour le lendemain.</p></a>
+    </div>
+    <div class="swipe-hint" data-for="sw-concepts"><span class="mono">Glisse</span><span class="track"><i></i></span></div>
+  </section>
+
+  <!-- MÉTHODE -->
+  <section class="sec" id="methode" aria-labelledby="t-meth">
+    <div class="pad">
+      <p class="mono label rv">Méthode</p>
+      <h2 class="h2 rv" id="t-meth">Simple, en <span class="serif accent">trois</span> étapes.</h2>
+    </div>
+    <ol class="steps" id="steps">
+      <span class="prog" aria-hidden="true"></span>
+      <li><span class="dot">01</span><h3>On parle</h3><p>Tu nous écris et tu nous parles de ton commerce.</p></li>
+      <li><span class="dot">02</span><h3>On crée</h3><p>On dessine ton site, tu donnes ton avis, on ajuste avec toi.</p></li>
+      <li><span class="dot">03</span><h3>On lance</h3><p>Ton site est en ligne. Tu mets l’adresse dans ta bio.</p></li>
+    </ol>
+  </section>
+
+  <!-- DEVIS -->
+  <section class="sec" id="devis" aria-labelledby="t-devis">
+    <div class="pad">
+      <p class="mono label rv">Estimation gratuite</p>
+      <h2 class="h2 rv" id="t-devis">Ton site, ton <span class="serif accent">prix.</span></h2>
+      <p class="lead rv">Réponds à quelques questions. Le prix s’affiche en direct. C’est gratuit et sans engagement.</p>
+    </div>
+    <form class="est" id="est" novalidate>
+      <fieldset class="q">
+        <legend><span class="n">1</span> Tu fais quoi ?</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="metier" value="Traiteur / Pâtisserie"><span>Traiteur / Pâtisserie</span></label>
+          <label class="choice"><input type="radio" name="metier" value="Coiffeur / Barbier"><span>Coiffeur / Barbier</span></label>
+          <label class="choice"><input type="radio" name="metier" value="Beauté / Onglerie"><span>Beauté / Onglerie</span></label>
+          <label class="choice"><input type="radio" name="metier" value="Restaurant / Snack"><span>Restaurant / Snack</span></label>
+          <label class="choice"><input type="radio" name="metier" value="Boutique"><span>Boutique</span></label>
+          <label class="choice"><input type="radio" name="metier" value="Artisan"><span>Artisan</span></label>
+          <label class="choice"><input type="radio" name="metier" value="Créateur"><span>Créateur</span></label>
+          <label class="choice"><input type="radio" name="metier" value="Autre"><span>Autre</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend><span class="n">2</span> Quel site ?</legend>
+        <div class="tiles" id="formule"></div>
+      </fieldset>
+      <fieldset class="q">
+        <legend><span class="n">3</span> Des options ?</legend>
+        <p class="q-hint">Coche ce qui t’intéresse. Les options sont chiffrées avec toi.</p>
+        <div class="opts" id="options"></div>
+      </fieldset>
+      <fieldset class="q">
+        <legend><span class="n">4</span> Pour quand ?</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="quand" value="Dès que possible"><span>Dès que possible</span></label>
+          <label class="choice"><input type="radio" name="quand" value="Dans le mois" checked><span>Dans le mois</span></label>
+          <label class="choice"><input type="radio" name="quand" value="Pas pressé"><span>Pas pressé</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend><span class="n">5</span> Tes infos</legend>
+        <div class="fields">
+          <div class="field"><label for="prenom">Ton prénom</label><input id="prenom" autocomplete="given-name" placeholder="Amina"></div>
+          <div class="field"><label for="commerce">Nom de ton commerce</label><input id="commerce" placeholder="Les Délices d’Amina"></div>
+          <div class="field"><label for="contact">Ton Instagram ou ton téléphone</label><input id="contact" placeholder="@toncommerce ou 06 12 34 56 78"></div>
+          <div class="field"><label for="message">Un message ? (facultatif)</label><textarea id="message" placeholder="Ce que tu vends, ton style, un site que tu aimes…"></textarea></div>
+        </div>
+        <p class="err" id="err" role="alert"></p>
+        <p class="note">On te confirme le prix exact après un échange, gratuitement.</p>
+      </fieldset>
+      <div class="paybar" id="paybar" aria-live="polite">
+        <div><div class="lbl">Ton estimation</div><div class="price" id="price">400 €</div></div>
+        <button class="btn btn-accent" type="submit">Envoyer <span class="arrow">→</span></button>
+      </div>
+    </form>
+  </section>
+
+  <!-- FIN -->
+  <section class="final" id="contact">
+    <p class="mono label rv">À toi</p>
+    <h2 class="h2 rv">Parlons de <span class="serif accent">ton</span> site.</h2>
+    <p class="lead rv">Une question ? Écris-nous sur Instagram, on répond vite.</p>
+    <div class="acts rv">
+      <a class="btn btn-light block" href="https://ig.me/m/monsite.studio" target="_blank" rel="noopener">Écrire sur Instagram <span class="arrow">↗</span></a>
+      <a class="btn btn-line block" href="#devis">Estimer mon site</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot"><span class="mono">© <span id="year">2026</span> Mon Site Studio</span><a href="./?v=site">Version ordinateur</a></div>
+  <div class="foot-word" aria-hidden="true">monsite<i>.</i>studio</div>
+</footer>
+
+<!-- Fiche « demande prête » -->
+<div class="sheet-bg" id="sheet-bg"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-t" hidden>
+  <div class="grab"></div>
+  <span class="mono">Demande prête</span>
+  <h3 id="sheet-t">Merci <span id="done-name"></span> ! <span class="serif accent">À très vite.</span></h3>
+  <p>Envoie-nous ce récapitulatif <span id="via">en message sur Instagram</span>. On te répond avec une idée claire et le prix exact.</p>
+  <pre id="recap"></pre>
+  <div class="acts">
+    <button class="btn btn-light block" type="button" id="copy">Copier le récap</button>
+    <a class="btn btn-line block" href="https://ig.me/m/monsite.studio" target="_blank" rel="noopener">Ouvrir Instagram <span class="arrow">↗</span></a>
+    <a class="btn btn-line block" id="mail" href="#" hidden>Envoyer par e-mail <span class="arrow">→</span></a>
+    <button class="btn btn-line block" type="button" id="sheet-close" style="box-shadow:none;color:var(--muted)">Fermer</button>
+  </div>
+</div>
+
+<nav class="tabbar" aria-label="Menu">
+  <a href="#accueil" data-tab="accueil" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Accueil</a>
+  <a href="#creations" data-tab="creations"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Créations</a>
+  <a href="#devis" data-tab="devis" class="cta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>Devis</a>
+  <a href="#contact" data-tab="contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg>Contact</a>
+</nav>
+
+<script src="assets/tarifs.js"></script>
+<script src="assets/mobile.js"></script>
+</body>
+</html>

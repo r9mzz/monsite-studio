@@ -391,6 +391,7 @@ fieldset.q{border:0;border-top:1px solid var(--line);margin:0;min-width:0}
 .steps-wrap{position:relative}
 .steps-progress{position:absolute;left:0;right:0;top:0;height:1px;z-index:1}
 .steps-progress span{display:block;height:100%;background:var(--accent);transform-origin:left;transform:scaleX(var(--p,1))}
+.wd{display:inline-block;white-space:nowrap}
 .split-chars .ch{display:inline-block;will-change:transform}
 .magnetic{will-change:transform}
 /* curseur : point + anneau */
@@ -424,3 +425,6 @@ html.arriving body{overflow:hidden}
 .tile input:checked + .in em{color:var(--accent)}
 .opt .p{font-family:var(--font-body);font-weight:700;font-size:14px;color:var(--fg)}
 .panel .lines li span:last-child{font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--fg)}
+
+/* Éléments réservés au téléphone (affichés par phone.css) */
+.tabbar,.done .grab,.done-close,.swipe-note{display:none}

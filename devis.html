@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<script>(function(){try{var q=location.search,s=sessionStorage;if(/[?&]v=site/.test(q))s.setItem('ms-v','site');if(/[?&]v=app/.test(q))s.setItem('ms-v','app');if(s.getItem('ms-v')==='site')return;var phone=matchMedia('(max-width: 760px)').matches||(matchMedia('(pointer: coarse)').matches&&matchMedia('(max-width: 1024px)').matches);if(phone)location.replace('mobile.html'+('#devis'));}catch(e){}})();</script>
+<meta name="theme-color" content="#0B0B0D">
 <title>Devis gratuit · Mon Site Studio</title>
 <meta name="description" content="Estime le prix de ton site en une minute. Gratuit et sans engagement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/phone.css" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
 <body>
@@ -93,19 +94,22 @@
         <div class="price" id="price">400 €</div>
         <ul class="lines" id="lines"></ul>
         <p class="note">Les options sont chiffrées ensemble, selon ton besoin. On te confirme le prix exact après un échange, gratuitement.</p>
-        <button class="btn btn-light" type="submit" id="send" style="border:0;cursor:pointer">Envoyer ma demande <span class="arrow">→</span></button>
+        <button class="btn btn-light" type="submit" id="send" style="border:0;cursor:pointer">Envoyer<span class="lg"> ma demande</span> <span class="arrow">→</span></button>
       </aside>
     </form>
 
-    <div class="done" id="done" hidden>
+    <div class="done-bg" id="done-bg" hidden></div>
+    <div class="done" id="done" hidden role="dialog" aria-labelledby="done-t">
+      <span class="grab" aria-hidden="true"></span>
       <span class="mono">Demande prête</span>
-      <h3>Merci <span id="done-name"></span> ! <span class="serif accent">À très vite.</span></h3>
+      <h3 id="done-t">Merci <span id="done-name"></span> ! <span class="serif accent">À très vite.</span></h3>
       <p style="color:var(--muted)">Envoie-nous ce récapitulatif <span id="via">en message sur Instagram</span>. On te répond avec une idée claire et le prix exact.</p>
       <pre id="recap"></pre>
       <div class="hero-actions">
         <button class="btn btn-light" type="button" id="copy" style="border:0;cursor:pointer">Copier le récap</button>
         <a class="btn btn-line" href="https://ig.me/m/monsite.studio" target="_blank" rel="noopener">Ouvrir Instagram <span class="arrow">→</span></a>
         <a class="btn btn-line" id="mail" href="#" hidden>Envoyer par e-mail <span class="arrow">→</span></a>
+        <button class="btn btn-line done-close" type="button" id="done-close">Modifier ma demande</button>
       </div>
     </div>
   </section>
@@ -197,8 +201,27 @@
     }
     var done = document.getElementById('done');
     done.hidden = false;
-    done.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (phone.matches) {
+      document.getElementById('done-bg').hidden = false;
+      void done.offsetWidth; document.documentElement.classList.add('sheet-open');
+    } else {
+      done.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
+
+  // Sur téléphone, le récap s'ouvre dans un volet qui monte du bas
+  var phone = window.matchMedia('(max-width: 760px)');
+  function closeDone() {
+    document.documentElement.classList.remove('sheet-open');
+    setTimeout(function () { document.getElementById('done').hidden = true; document.getElementById('done-bg').hidden = true; }, 450);
+  }
+  document.getElementById('done-close').addEventListener('click', closeDone);
+  // La barre de prix s'efface quand on arrive au pied de page
+  if ('IntersectionObserver' in window) {
+    var panel = document.querySelector('.panel');
+    new IntersectionObserver(function (es) { panel.classList.toggle('away', es[0].isIntersecting && phone.matches); }).observe(document.querySelector('.foot'));
+  }
+  document.getElementById('done-bg').addEventListener('click', closeDone);
 
   document.getElementById('copy').addEventListener('click', function () {
     var btn = this, txt = document.getElementById('recap');

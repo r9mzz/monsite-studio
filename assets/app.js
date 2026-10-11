@@ -2,6 +2,32 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Barre d'onglets (visible seulement sur téléphone, voir phone.css) ---------- */
+  (function () {
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var I = {
+      home: '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+      grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+      doc: '<path d="M6 3h9l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+      chat: '<path d="M4 5h16v11H8l-4 4z"/>'
+    };
+    var items = [
+      { href: './', page: 'index.html', label: 'Accueil', icon: I.home },
+      { href: 'realisations.html', page: 'realisations.html', label: 'Créations', icon: I.grid },
+      { href: 'devis.html', page: 'devis.html', label: 'Devis', icon: I.doc, cta: true },
+      { href: 'https://ig.me/m/monsite.studio', label: 'Contact', icon: I.chat, ext: true }
+    ];
+    var nav = document.createElement('nav');
+    nav.className = 'tabbar'; nav.setAttribute('aria-label', 'Menu');
+    nav.innerHTML = items.map(function (it) {
+      var on = it.page === here;
+      return '<a href="' + it.href + '"' + (it.ext ? ' target="_blank" rel="noopener"' : '') +
+        ' class="' + (on ? 'on' : '') + (it.cta ? ' cta' : '') + '"' + (on ? ' aria-current="page"' : '') + '>' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true">' + it.icon + '</svg>' + it.label + '</a>';
+    }).join('');
+    document.body.appendChild(nav);
+  })();
+
   /* ---------- Mini-sites dessinés en CSS ---------- */
   var MINIS = {
     sweet: {
@@ -176,9 +202,15 @@
       Array.prototype.slice.call(node.childNodes).forEach(function (c) {
         if (c.nodeType === 3) {
           var frag = document.createDocumentFragment();
-          Array.from(c.textContent).forEach(function (ch) {
-            if (ch === ' ') { frag.appendChild(document.createTextNode(' ')); return; }
-            var s = document.createElement('span'); s.className = 'ch'; s.textContent = ch; frag.appendChild(s); out.push(s);
+          // les lettres d'un même mot restent groupées pour ne jamais couper un mot en fin de ligne
+          c.textContent.split(/( +)/).forEach(function (word) {
+            if (!word) return;
+            if (/^ +$/.test(word)) { frag.appendChild(document.createTextNode(word)); return; }
+            var w = document.createElement('span'); w.className = 'wd';
+            Array.from(word).forEach(function (ch) {
+              var s = document.createElement('span'); s.className = 'ch'; s.textContent = ch; w.appendChild(s); out.push(s);
+            });
+            frag.appendChild(w);
           });
           c.parentNode.replaceChild(frag, c);
         } else if (c.nodeType === 1 && c.tagName !== 'svg') { walk(c); }

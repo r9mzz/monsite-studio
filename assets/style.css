@@ -428,3 +428,6 @@ html.arriving body{overflow:hidden}
 
 /* Éléments réservés au téléphone (affichés par phone.css) */
 .tabbar,.done .grab,.done-close,.swipe-note{display:none}
+.case-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:clamp(18px,2vw,28px)}
+.case-head h2{font-size:clamp(44px,6vw,96px);line-height:.95;letter-spacing:-.05em}
+.case-cover.is-shot img{height:100%;object-position:center}

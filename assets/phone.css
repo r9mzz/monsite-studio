@@ -125,3 +125,5 @@ fieldset.q{padding-block:26px;gap:14px}
 .panel.away{transform:translateY(140%);opacity:0;pointer-events:none}
 /* Pas d’effet de survol collant au doigt */
 @media (hover:none){.btn:hover::before{transform:translateY(101%)}.btn-line:hover{color:var(--fg)}.btn:active::before{transform:translateY(0)}.btn-line:active{color:var(--bg)}}
+.case-cover.is-shot{aspect-ratio:2400/1030;border-radius:14px}
+.case-head h2{font-size:44px}

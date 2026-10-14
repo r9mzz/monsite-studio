@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/home.css">
 <link rel="stylesheet" href="assets/phone.css" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
@@ -23,93 +24,69 @@
     <a class="logo" href="./" aria-label="Mon Site Studio, accueil">monsite<i>.</i>studio</a>
     <nav class="nav-links" aria-label="Menu principal">
       <a class="hide-m" href="realisations.html">Créations</a>
-      <a class="hide-m" href="#methode">Méthode</a>
-            <a class="btn btn-light btn-sm" href="devis.html">Devis gratuit</a>
+      <a class="hide-m" href="#prix">Prix</a>
+      <a class="btn btn-light btn-sm" href="devis.html">Devis gratuit</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="hero wrap" id="haut">
-    <canvas class="aura" aria-hidden="true"></canvas>
-    <div class="hero-split">
-      <div class="hero-text">
-        <p class="mono reveal-fade">Studio web pour commerçants, artisans et indépendants</p>
-        <h1 class="reveal-lines">
-          <span class="line"><span>Des sites qui</span></span>
-          <span class="line"><span>donnent <span class="serif accent envie">envie<svg class="swash" viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 22 C 70 6, 150 4, 296 14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></span></span>
-          <span class="line"><span>de cliquer.</span></span>
-        </h1>
-        <p class="hero-lead reveal-fade">On crée le site de ton commerce. Beau, rapide et parfait sur téléphone.</p>
-        <div class="hero-actions reveal-fade">
-          <a class="btn btn-light magnetic" href="devis.html">Estimer mon site <span class="arrow">→</span></a>
-          <a class="btn btn-line" href="realisations.html">Nos créations</a>
-        </div>
-      </div>
-      <div class="machine reveal-fade" data-cursor="Styles">
-        <div class="browser tilt">
-          <div class="browser-bar"><i></i><i></i><i></i><div class="url"><b>sweetdelices.fr</b></div></div>
-          <div class="screen"></div>
-        </div>
-        <div class="machine-caption"><span class="mono machine-name">Sweet Délices · client</span><div class="dots"></div></div>
+  <section class="h5 wrap" id="haut">
+    <p class="mono reveal-fade">Studio web · commerçants, artisans, indépendants</p>
+    <h1 class="reveal-lines">
+      <span class="line"><span>Des sites qui donnent</span></span>
+      <span class="line"><span><span class="serif accent">envie</span> de cliquer.</span></span>
+    </h1>
+    <div class="h5-foot reveal-fade">
+      <p>On crée le site de ton commerce.<br>Beau, rapide, parfait sur téléphone.</p>
+      <div class="h5-cta">
+        <a class="btn btn-light magnetic" href="devis.html">Estimer mon site <span class="arrow">→</span></a>
+        <a class="ulink" href="realisations.html">Voir les créations</a>
       </div>
     </div>
   </section>
 
-  <div class="marquee" aria-label="Pour les traiteurs, barbiers, ongleries, fleuristes, boulangeries, coiffeurs, restaurants, artisans et créateurs">
-    <div class="marquee-track" aria-hidden="true">
-      <span>Traiteurs</span><em>✦</em><span class="o">Barbiers</span><em>✦</em><span>Ongleries</span><em>✦</em><span class="o">Fleuristes</span><em>✦</em><span>Boulangeries</span><em>✦</em><span class="o">Coiffeurs</span><em>✦</em><span>Restaurants</span><em>✦</em><span class="o">Artisans</span><em>✦</em><span>Créateurs</span><em>✦</em>
-      <span>Traiteurs</span><em>✦</em><span class="o">Barbiers</span><em>✦</em><span>Ongleries</span><em>✦</em><span class="o">Fleuristes</span><em>✦</em><span>Boulangeries</span><em>✦</em><span class="o">Coiffeurs</span><em>✦</em><span>Restaurants</span><em>✦</em><span class="o">Artisans</span><em>✦</em><span>Créateurs</span><em>✦</em>
+  <section class="sec5 wrap" aria-labelledby="t-crea">
+    <div class="sec5-head rv"><p class="mono">01 · Créations</p><h2 id="t-crea">Chaque commerce a son style.</h2></div>
+    <div class="work">
+      <a class="work-item big rv" href="realisations.html">
+        <div class="work-img"><img src="img/sd-cookies-box.jpg" alt="Box de cookies de Sweet Délices" loading="lazy"></div>
+        <div class="work-meta"><h3>Sweet Délices</h3><span>Client · Traiteur</span></div>
+      </a>
+      <a class="work-item rv" href="realisations.html#concepts">
+        <div class="work-img mini-wrap" data-mini="nails"></div>
+        <div class="work-meta"><h3>Ongles Lina</h3><span>Concept · Onglerie</span></div>
+      </a>
+      <a class="work-item rv" href="realisations.html#concepts">
+        <div class="work-img mini-wrap" data-mini="barber"></div>
+        <div class="work-meta"><h3>K. Barber</h3><span>Concept · Barbier</span></div>
+      </a>
     </div>
-  </div>
-
-  <section class="styles" aria-labelledby="styles-titre">
-    <div class="wrap styles-head">
-      <h2 id="styles-titre">Pas deux sites pareils.</h2>
-      <p>Chaque commerce a son ambiance. On dessine ton site autour de ce que tu vends.</p>
-    </div>
-    <div class="hscroll">
-      <div class="htrack">
-        <a class="card" data-cursor="Voir" href="realisations.html"><div class="frame" data-mini="sweet"></div><div class="card-meta"><h3>Sweet Délices</h3><span class="pill real">Client</span></div></a>
-        <a class="card" data-cursor="Voir" href="realisations.html#concepts"><div class="frame" data-mini="nails"></div><div class="card-meta"><h3>Ongles Lina</h3><span class="pill">Concept</span></div></a>
-        <a class="card" data-cursor="Voir" href="realisations.html#concepts"><div class="frame" data-mini="barber"></div><div class="card-meta"><h3>K. Barber</h3><span class="pill">Concept</span></div></a>
-        <a class="card" data-cursor="Voir" href="realisations.html#concepts"><div class="frame" data-mini="flowers"></div><div class="card-meta"><h3>Fleurs d’Amel</h3><span class="pill">Concept</span></div></a>
-        <a class="card" data-cursor="Voir" href="realisations.html#concepts"><div class="frame" data-mini="bakery"></div><div class="card-meta"><h3>Le Fournil de Nour</h3><span class="pill">Concept</span></div></a>
-      </div>
-    </div>
-    <p class="swipe-note wrap" aria-hidden="true" style="margin-top:0">Glisse pour voir la suite →</p>
+    <p class="rv"><a class="ulink" href="realisations.html">Toutes les créations →</a></p>
   </section>
 
-  <section class="section wrap">
-    <p class="mono label">Ce qu’on fait</p>
-    <div class="trio">
-      <div class="tri"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="4" width="22" height="40" rx="5"/><path d="M21 38h6"/></svg><h3>Le site</h3><p>Un site à ton image, pensé d’abord pour le téléphone : tes produits, tes prix, tes photos.</p></div>
-      <div class="tri"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h5l5 20h20l4-14H16"/><circle cx="20" cy="39" r="3"/><circle cx="35" cy="39" r="3"/></svg><h3>Les commandes</h3><p>Tes clients commandent, réservent ou demandent un devis directement sur le site.</p></div>
-      <div class="tri"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1z"/></svg><h3>L’image</h3><p>Un logo et des couleurs qui te ressemblent, pour ton site et ton Instagram.</p></div>
+  <section class="sec5 wrap" id="prix" aria-labelledby="t-prix">
+    <div class="sec5-head rv"><p class="mono">02 · Prix</p><h2 id="t-prix">Un prix clair, dès le départ.</h2></div>
+    <ul class="prices" id="prices"></ul>
+    <p class="prices-note rv">Options (logo, rendez-vous, commande en ligne…) sur devis. <a class="ulink" href="devis.html">Estimer mon site →</a></p>
+  </section>
+
+  <section class="sec5 wrap" aria-labelledby="t-faq">
+    <div class="sec5-head rv"><p class="mono">03 · Questions</p><h2 id="t-faq">Ce qu’on nous demande.</h2></div>
+    <div class="faq5">
+      <details class="rv"><summary><span class="n">01</span>Comment ça se passe ?<i></i></summary><p>Tu nous parles de ton commerce. On dessine ton site, tu donnes ton avis, on ajuste avec toi. Puis on le met en ligne et tu mets le lien dans ta bio.</p></details>
+      <details class="rv"><summary><span class="n">02</span>Les modifications sont comprises ?<i></i></summary><p>Oui. On modifie jusqu’à ce que la version finale te plaise.</p></details>
+      <details class="rv"><summary><span class="n">03</span>Mon site sera beau sur téléphone ?<i></i></summary><p>Oui. Tes clients te cherchent surtout sur leur téléphone, donc on le pense d’abord pour le téléphone, puis pour l’ordinateur.</p></details>
+      <details class="rv"><summary><span class="n">04</span>Je n’ai pas de logo ni de textes.<i></i></summary><p>Pas de souci. On peut créer ton logo et écrire les textes pour toi. Tu nous parles, on s’occupe du reste.</p></details>
     </div>
   </section>
 
-  <section class="section manifesto wrap" style="padding-top:0">
-    <p class="big">Tes clients te cherchent sur leur téléphone. Ce qu’ils voient en premier décide s’ils viennent chez toi. <span class="serif">On s’occupe de cette première impression.</span></p>
-  </section>
-
-  <section class="section wrap" id="methode" style="padding-top:0">
-    <p class="mono label">Méthode</p>
-    <div class="steps-wrap"><div class="steps-progress" aria-hidden="true"><span></span></div><ol class="steps">
-      <li><h3>On parle</h3><p>Tu nous écris et tu nous parles de ton commerce.</p></li>
-      <li><h3>On crée</h3><p>On dessine ton site, tu donnes ton avis, on ajuste avec toi.</p></li>
-      <li><h3>On lance</h3><p>Ton site est en ligne. Tu mets l’adresse dans ta bio.</p></li>
-    </ol></div>
-  </section>
-
-  <section class="final wrap">
+  <section class="final5 wrap">
     <h2 class="split-chars">Parlons de <span class="serif accent">ton</span> site.</h2>
-    <div class="row">
-      <p>Estime le prix en une minute. C’est gratuit.</p>
-      <div class="hero-actions">
-        <a class="btn btn-light magnetic" href="devis.html">Estimation gratuite <span class="arrow">→</span></a>
-        <a class="btn btn-line" href="https://www.instagram.com/monsite.studio/" target="_blank" rel="noopener">@monsite.studio</a>
-      </div>
+    <div class="final5-row">
+      <a class="btn btn-light magnetic" href="devis.html">Estimation gratuite <span class="arrow">→</span></a>
+      <a class="ulink" href="mailto:contactmonsite.studio@gmail.com">contactmonsite.studio@gmail.com</a>
+      <a class="ulink" href="https://www.instagram.com/monsite.studio/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </section>
 </main>
@@ -128,6 +105,13 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="assets/tarifs.js"></script>
+<script>
+/* Liste des prix (depuis assets/tarifs.js) */
+document.getElementById('prices').innerHTML = FORMULES.map(function (f) {
+  return '<li class="rv"><b>' + f.nom + '</b><span>' + f.desc + '</span><em>' + f.prix + ' €</em></li>';
+}).join('');
+</script>
 <script src="assets/app.js"></script>
 </body>
 </html>

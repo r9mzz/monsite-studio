@@ -274,6 +274,18 @@
     });
   }
 
+  /* ---------- Apparitions simples (.rv) ---------- */
+  var rvs = document.querySelectorAll('.rv');
+  if (rvs.length) {
+    if (reduce || !('IntersectionObserver' in window)) rvs.forEach(function (el) { el.classList.add('in'); });
+    else {
+      var rio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      rvs.forEach(function (el, i) { el.style.transitionDelay = (el.parentNode.children.length > 1 ? (Array.prototype.indexOf.call(el.parentNode.children, el) % 4) * 0.07 : 0) + 's'; rio.observe(el); });
+    }
+  }
+
   /* ---------- Année ---------- */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 

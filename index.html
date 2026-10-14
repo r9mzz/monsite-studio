@@ -24,7 +24,6 @@
     <a class="logo" href="./" aria-label="Mon Site Studio, accueil">monsite<i>.</i>studio</a>
     <nav class="nav-links" aria-label="Menu principal">
       <a class="hide-m" href="realisations.html">Créations</a>
-      <a class="hide-m" href="#prix">Prix</a>
       <a class="btn btn-light btn-sm" href="devis.html">Devis gratuit</a>
     </nav>
   </div>
@@ -33,51 +32,60 @@
 <main>
   <section class="h5 wrap" id="haut">
     <p class="mono reveal-fade">Studio web · commerçants, artisans, indépendants</p>
-    <h1 class="reveal-lines">
+    <h1 class="reveal-lines" aria-label="Des sites qui donnent envie de cliquer.">
       <span class="line"><span>Des sites qui donnent</span></span>
-      <span class="line"><span><span class="serif accent">envie</span> de cliquer.</span></span>
+      <span class="line"><span><span class="serif accent">envie</span> de <span class="rot" aria-hidden="true"><span class="rot-w on">cliquer.</span><span class="rot-w">commander.</span><span class="rot-w">réserver.</span><span class="rot-w">revenir.</span></span></span></span>
     </h1>
     <div class="h5-foot reveal-fade">
       <p>On crée le site de ton commerce.<br>Beau, rapide, parfait sur téléphone.</p>
       <div class="h5-cta">
         <a class="btn btn-light magnetic" href="devis.html">Estimer mon site <span class="arrow">→</span></a>
-        <a class="ulink" href="realisations.html">Voir les créations</a>
+        <a class="ulink" href="#creations">Voir les créations</a>
       </div>
     </div>
   </section>
 
-  <section class="sec5 wrap" aria-labelledby="t-crea">
-    <div class="sec5-head rv"><p class="mono">01 · Créations</p><h2 id="t-crea">Chaque commerce a son style.</h2></div>
-    <div class="work">
-      <a class="work-item big rv" href="realisations.html">
-        <div class="work-img"><img src="img/sd-cookies-box.jpg" alt="Box de cookies de Sweet Délices" loading="lazy"></div>
-        <div class="work-meta"><h3>Sweet Délices</h3><span>Client · Traiteur</span></div>
-      </a>
-      <a class="work-item rv" href="realisations.html#concepts">
-        <div class="work-img mini-wrap" data-mini="nails"></div>
-        <div class="work-meta"><h3>Ongles Lina</h3><span>Concept · Onglerie</span></div>
-      </a>
-      <a class="work-item rv" href="realisations.html#concepts">
-        <div class="work-img mini-wrap" data-mini="barber"></div>
-        <div class="work-meta"><h3>K. Barber</h3><span>Concept · Barbier</span></div>
-      </a>
+  <!-- Vitrine : le site Sweet Délices s'agrandit pendant qu'on descend -->
+  <section class="show" aria-label="Exemple : le site Sweet Délices">
+    <div class="show-stage">
+      <figure class="show-frame">
+        <div class="show-bar"><i></i><i></i><i></i><span>sweetdelices.fr</span></div>
+        <img src="img/sd-ordinateur.jpg" alt="Le site Sweet Délices sur ordinateur" width="1280" height="800">
+      </figure>
+      <figure class="show-phone"><img src="img/sd-telephone.jpg" alt="Le site Sweet Délices sur téléphone" width="600" height="1298" loading="lazy"></figure>
     </div>
-    <p class="rv"><a class="ulink" href="realisations.html">Toutes les créations →</a></p>
+    <div class="wrap show-cap"><span class="mono">Sweet Délices · traiteur · site réel</span><a class="ulink" href="https://r9mzz.github.io/sweet_delices/" target="_blank" rel="noopener">Voir le site en ligne ↗</a></div>
   </section>
 
-  <section class="sec5 wrap" id="prix" aria-labelledby="t-prix">
-    <div class="sec5-head rv"><p class="mono">02 · Prix</p><h2 id="t-prix">Un prix clair, dès le départ.</h2></div>
-    <ul class="prices" id="prices"></ul>
-    <p class="prices-note rv">Options (logo, rendez-vous, commande en ligne…) sur devis. <a class="ulink" href="devis.html">Estimer mon site →</a></p>
+  <!-- Créations : liste, l'aperçu suit la souris -->
+  <section class="sec5 wrap" id="creations" aria-labelledby="t-crea">
+    <div class="sec5-head"><p class="mono rv">01 · Créations</p><h2 id="t-crea" class="split-lines">Chaque commerce a son style.</h2></div>
+    <ul class="plist">
+      <li class="rv"><a href="realisations.html" data-pv="0"><span class="pn">01</span><span class="pthumb"><img src="img/sd-cookies-box.jpg" alt=""></span><span class="pt">Sweet Délices</span><span class="pk">Traiteur · client</span><span class="pa">→</span></a></li>
+      <li class="rv"><a href="realisations.html#concepts" data-pv="1"><span class="pn">02</span><span class="pthumb mini-wrap" data-mini="nails"></span><span class="pt">Ongles Lina</span><span class="pk">Onglerie · concept</span><span class="pa">→</span></a></li>
+      <li class="rv"><a href="realisations.html#concepts" data-pv="2"><span class="pn">03</span><span class="pthumb mini-wrap" data-mini="barber"></span><span class="pt">K. Barber</span><span class="pk">Barbier · concept</span><span class="pa">→</span></a></li>
+      <li class="rv"><a href="realisations.html#concepts" data-pv="3"><span class="pn">04</span><span class="pthumb mini-wrap" data-mini="flowers"></span><span class="pt">Fleurs d’Amel</span><span class="pk">Fleuriste · concept</span><span class="pa">→</span></a></li>
+      <li class="rv"><a href="realisations.html#concepts" data-pv="4"><span class="pn">05</span><span class="pthumb mini-wrap" data-mini="bakery"></span><span class="pt">Le Fournil de Nour</span><span class="pk">Boulangerie · concept</span><span class="pa">→</span></a></li>
+    </ul>
+    <div class="ppv" aria-hidden="true">
+      <div class="ppv-in">
+        <div class="ppv-s"><img src="img/sd-cookies-box.jpg" alt=""></div>
+        <div class="ppv-s mini-wrap" data-mini="nails"></div>
+        <div class="ppv-s mini-wrap" data-mini="barber"></div>
+        <div class="ppv-s mini-wrap" data-mini="flowers"></div>
+        <div class="ppv-s mini-wrap" data-mini="bakery"></div>
+      </div>
+    </div>
   </section>
 
-  <section class="sec5 wrap" aria-labelledby="t-faq">
-    <div class="sec5-head rv"><p class="mono">03 · Questions</p><h2 id="t-faq">Ce qu’on nous demande.</h2></div>
-    <div class="faq5">
-      <details class="rv"><summary><span class="n">01</span><span class="q">Comment ça se passe ?</span><i></i></summary><p>Tu nous parles de ton commerce. On dessine ton site, tu donnes ton avis, on ajuste avec toi. Puis on le met en ligne et tu mets le lien dans ta bio.</p></details>
-      <details class="rv"><summary><span class="n">02</span><span class="q">Les modifications sont comprises ?</span><i></i></summary><p>Oui. On modifie jusqu’à ce que la version finale te plaise.</p></details>
-      <details class="rv"><summary><span class="n">03</span><span class="q">Mon site sera beau sur téléphone ?</span><i></i></summary><p>Oui. Tes clients te cherchent surtout sur leur téléphone, donc on le pense d’abord pour le téléphone, puis pour l’ordinateur.</p></details>
-      <details class="rv"><summary><span class="n">04</span><span class="q">Je n’ai pas de logo ni de textes.</span><i></i></summary><p>Pas de souci. On peut créer ton logo et écrire les textes pour toi. Tu nous parles, on s’occupe du reste.</p></details>
+  <!-- Questions : courtes -->
+  <section class="sec5 wrap qa" aria-labelledby="t-faq">
+    <div class="qa-head"><p class="mono rv">02 · Questions</p><h2 id="t-faq" class="split-lines">Simple, de A à Z.</h2></div>
+    <div class="qa-list">
+      <details class="rv"><summary>Comment ça se passe ?<i></i></summary><p>Tu nous parles de ton commerce. On dessine ton site, tu donnes ton avis, on ajuste avec toi. Puis on le met en ligne.</p></details>
+      <details class="rv"><summary>Les modifications sont comprises ?<i></i></summary><p>Oui, jusqu’à ce que la version finale te plaise.</p></details>
+      <details class="rv"><summary>Je n’ai pas de logo ni de textes.<i></i></summary><p>Pas de souci : on peut créer ton logo et écrire les textes pour toi.</p></details>
+      <details class="rv"><summary>Combien ça coûte ?<i></i></summary><p>Ça dépend de ce dont tu as besoin. <a class="ulink" href="devis.html">Fais ton estimation gratuite</a> en une minute.</p></details>
     </div>
   </section>
 
@@ -105,13 +113,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-<script src="assets/tarifs.js"></script>
-<script>
-/* Liste des prix (depuis assets/tarifs.js) */
-document.getElementById('prices').innerHTML = FORMULES.map(function (f) {
-  return '<li class="rv"><b>' + f.nom + '</b><span>' + f.desc + '</span><em>' + f.prix + ' €</em></li>';
-}).join('');
-</script>
 <script src="assets/app.js"></script>
+<script src="assets/home.js"></script>
 </body>
 </html>

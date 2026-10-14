@@ -8,8 +8,13 @@
 @keyframes uline{0%{transform:scaleX(1);transform-origin:right}45%{transform:scaleX(0);transform-origin:right}46%{transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
 
 /* Héro */
-.h5{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(28px,4vw,56px);padding-top:140px;padding-bottom:clamp(40px,6vw,80px)}
-.h5 h1{font-size:clamp(54px,8.6vw,164px);line-height:.92;letter-spacing:-.055em}
+.h5{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(28px,4vw,56px);padding-top:clamp(150px,20vh,230px);padding-bottom:clamp(40px,6vw,80px)}
+.h5>*:not(.h5-wave){position:relative;z-index:1}
+.h5-wave{position:absolute;z-index:0;top:0;bottom:-12%;left:50%;width:100vw;transform:translateX(-50%);pointer-events:none;opacity:0;transition:opacity 1.6s ease}
+.h5-wave.on{opacity:1}
+html{overflow-x:clip}
+@media (min-width:761px){.h5 h1 .line{white-space:nowrap}}
+.h5 h1{font-size:clamp(54px,7.4vw,142px);line-height:.92;letter-spacing:-.055em}
 .h5 h1 .serif{font-weight:400;letter-spacing:-.025em;padding-right:.04em}
 .h5-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;padding-top:clamp(24px,3vw,40px);border-top:1px solid var(--line)}
 .h5-foot p{font-size:clamp(18px,1.5vw,22px);color:var(--muted);line-height:1.45}

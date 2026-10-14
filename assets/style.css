@@ -1,9 +1,9 @@
 /* Mon Site Studio — un seul univers sombre, choisi exprès (pas de thème clair).
    Layout : grandes typos pleine largeur, sections empilées, une bande horizontale épinglée pour les styles. */
 :root{
-  --bg:#0B0B0D;
-  --bg-2:#141417;
-  --bg-3:#1C1C21;
+  --bg:#131218;
+  --bg-2:#1B1A21;
+  --bg-3:#24222B;
   --fg:#EEEAE2;
   --muted:#8F8B84;
   --line:rgba(238,234,226,.12);
@@ -36,7 +36,7 @@ p{margin:0}
 
 /* ---------- En-tête ---------- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .4s var(--ease),border-color .4s}
-.nav.scrolled{background:rgba(11,11,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav.scrolled{background:rgba(19,18,24,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
 .logo{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-.04em;white-space:nowrap}
 .logo i{font-style:normal;color:var(--accent)}

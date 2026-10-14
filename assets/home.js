@@ -98,12 +98,12 @@
       ctx.clearRect(0, 0, W, H);
       var phone = W < 760;
       // halo qui se déplace sous la vague
-      var gx = W * (.62 + Math.sin(T * .00021) * .16 + (mx - .5) * .08), gy = H * (.36 + Math.cos(T * .00017) * .08);
+      var gx = W * (phone ? .6 : .62 + Math.sin(T * .00021) * .16 + (mx - .5) * .08), gy = phone ? 130 + Math.cos(T * .00017) * 30 : H * (.36 + Math.cos(T * .00017) * .08);
       var g = ctx.createRadialGradient(gx, gy, 0, gx, gy, Math.max(W, H) * .42);
       g.addColorStop(0, 'rgba(124,92,255,.20)'); g.addColorStop(.5, 'rgba(124,92,255,.06)'); g.addColorStop(1, 'rgba(124,92,255,0)');
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
       // ruban de lignes
-      var amp = H * (phone ? .07 : .09), step = phone ? 8 : 10;
+      var amp = phone ? 34 : H * .09, step = phone ? 6 : 10;
       var lg = ctx.createLinearGradient(0, 0, W, 0);
       lg.addColorStop(0, 'rgba(185,168,255,0)'); lg.addColorStop(.25, 'rgba(185,168,255,1)');
       lg.addColorStop(.7, 'rgba(150,120,255,1)'); lg.addColorStop(1, 'rgba(185,168,255,0)');
@@ -114,8 +114,8 @@
         ctx.beginPath();
         for (var x = -20; x <= W + 20; x += step) {
           var u = x / W;
-          var base = H * (.16 + u * .3) + my * 40;
-          var spread = (Math.sin(u * 3.1 + T * .00035) * .55 + .7) * H * (phone ? .22 : .3);
+          var base = phone ? 120 + u * 40 : H * (.16 + u * .3) + my * 40;
+          var spread = (Math.sin(u * 3.1 + T * .00035) * .55 + .7) * (phone ? 90 : H * .3);
           var y = base
             + Math.sin(u * 5.2 + T * .0006 + k * 1.1) * amp
             + Math.sin(u * 2.3 - T * .00042 + k * .6) * amp * .8

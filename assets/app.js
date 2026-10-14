@@ -274,6 +274,23 @@
     });
   }
 
+  /* ---------- Grand mot du pied de page : occupe toute la largeur ---------- */
+  var fw = document.querySelector('.foot-word');
+  function fitWord() {
+    if (!fw) return;
+    var cs = getComputedStyle(fw.parentNode);
+    var avail = fw.parentNode.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    // la police change légèrement de dessin selon la taille : on ajuste en quelques passes
+    var size = 100;
+    for (var k = 0; k < 4; k++) {
+      fw.style.setProperty('--fw', size + 'px');
+      var w = fw.scrollWidth; if (!w) return;
+      size = size * avail / w;
+    }
+    fw.style.setProperty('--fw', Math.floor(size * 0.99) + 'px');
+  }
+  if (fw) { fw.style.whiteSpace = 'nowrap'; fw.style.width = 'max-content'; fitWord(); window.addEventListener('resize', fitWord); if (document.fonts) document.fonts.ready.then(fitWord); window.addEventListener('load', fitWord); }
+
   /* ---------- Apparitions simples (.rv) ---------- */
   var rvs = document.querySelectorAll('.rv');
   if (rvs.length) {

@@ -457,4 +457,5 @@ html.arriving body{overflow:hidden}
   .case .show-phone{right:3%}
 }
 .case .show-phone{right:4%}
-.tile .pop{position:absolute;top:-10px;right:16px;z-index:2;font-style:normal;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);border-radius:99px;padding:3px 10px;pointer-events:none}
+.tile .pop{order:-1;display:flex;align-items:center;gap:8px;font-style:normal;font-family:var(--font-serif);font-size:17px;line-height:1;color:var(--accent);margin-bottom:-2px}
+.tile .pop::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}

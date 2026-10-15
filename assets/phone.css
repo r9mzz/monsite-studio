@@ -127,3 +127,5 @@ fieldset.q{padding-block:26px;gap:14px}
 @media (hover:none){.btn:hover::before{transform:translateY(101%)}.btn-line:hover{color:var(--fg)}.btn:active::before{transform:translateY(0)}.btn-line:active{color:var(--bg)}}
 .case-cover.is-shot{aspect-ratio:2400/1030;border-radius:14px}
 .case-head h2{font-size:44px}
+.tile .pop{grid-column:1/-1;margin-bottom:4px}
+.tile .in:has(.pop) em{grid-row:2}

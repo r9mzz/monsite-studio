@@ -133,8 +133,13 @@
   var cursor = document.querySelector('.cursor');
   if (cursor && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
     var cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
-    window.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; });
-    (function loop() { cx += (tx - cx) * 0.2; cy += (ty - cy) * 0.2; cursor.style.transform = 'translate(' + cx + 'px,' + cy + 'px)'; requestAnimationFrame(loop); })();
+    var moving = false;
+    function loop() {
+      cx += (tx - cx) * 0.2; cy += (ty - cy) * 0.2;
+      cursor.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+      if (Math.abs(tx - cx) + Math.abs(ty - cy) > 0.3) requestAnimationFrame(loop); else moving = false;
+    }
+    window.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; if (!moving) { moving = true; requestAnimationFrame(loop); } }, { passive: true });
     document.querySelectorAll('[data-cursor]').forEach(function (el) {
       el.addEventListener('mouseenter', function () { cursor.querySelector('span').textContent = el.getAttribute('data-cursor'); cursor.classList.add('big'); });
       el.addEventListener('mouseleave', function () { cursor.classList.remove('big'); });
@@ -157,14 +162,14 @@
 
     // Arrivée : le rideau se lève et découvre la page
     if (store.get('ms-curtain') === '1' || root.classList.contains('arriving')) {
-      store.del('ms-curtain'); window.__msArrive = 0.75;
+      store.del('ms-curtain'); window.__msArrive = 0.45;
       root.classList.add('arriving');
       var up = [{ transform: 'translateY(0)', borderRadius: '0 0 0 0/0 0 0 0' }, { transform: 'translateY(-105%)', borderRadius: '0 0 50% 50%/0 0 14% 14%' }];
-      anim(logo, [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-24px)' }], { duration: 450, delay: 150, easing: 'cubic-bezier(.4,0,.2,1)' });
-      anim(bar, [{ opacity: 1 }, { opacity: 0 }], { duration: 300, delay: 150 });
-      anim(lb, up, { duration: 1000, delay: 380 });
-      var last = anim(la, up, { duration: 1000, delay: 480 });
-      setTimeout(function () { root.classList.remove('arriving'); }, 420);
+      anim(logo, [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-24px)' }], { duration: 300, delay: 60, easing: 'cubic-bezier(.4,0,.2,1)' });
+      anim(bar, [{ opacity: 1 }, { opacity: 0 }], { duration: 200, delay: 60 });
+      anim(lb, up, { duration: 800, delay: 180 });
+      var last = anim(la, up, { duration: 800, delay: 250 });
+      setTimeout(function () { root.classList.remove('arriving'); }, 230);
       last.onfinish = clearAll;
     }
 
@@ -173,6 +178,8 @@
     document.querySelectorAll('a[href]').forEach(function (a) {
       var href = a.getAttribute('href');
       if (!href || href.charAt(0) === '#' || a.target === '_blank' || /^(https?:|mailto:|tel:)/.test(href)) return;
+      var pre = function () { if (a._pre) return; a._pre = 1; var l = document.createElement('link'); l.rel = 'prefetch'; l.href = a.href; document.head.appendChild(l); };
+      a.addEventListener('pointerenter', pre, { passive: true }); a.addEventListener('touchstart', pre, { passive: true });
       a.addEventListener('click', function (e) {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0 || leaving) return;
         var here = location.pathname.split('/').pop() || 'index.html';
@@ -182,11 +189,11 @@
         store.set('ms-curtain', '1');
         clearAll();
         var cover = [{ transform: 'translateY(105%)', borderRadius: '50% 50% 0 0/14% 14% 0 0' }, { transform: 'translateY(0)', borderRadius: '0 0 0 0/0 0 0 0' }];
-        anim(la, cover, { duration: 750 });
-        anim(lb, cover, { duration: 750, delay: 110 });
-        anim(logo, [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 500, delay: 520, easing: 'cubic-bezier(.22,1,.36,1)' });
-        anim(bar, [{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: 560 });
-        var fill = anim(barIn, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 420, delay: 620, easing: 'cubic-bezier(.65,0,.35,1)' });
+        anim(la, cover, { duration: 560 });
+        anim(lb, cover, { duration: 560, delay: 70 });
+        anim(logo, [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 320, delay: 330, easing: 'cubic-bezier(.22,1,.36,1)' });
+        anim(bar, [{ opacity: 0 }, { opacity: 1 }], { duration: 200, delay: 350 });
+        var fill = anim(barIn, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 260, delay: 400, easing: 'cubic-bezier(.65,0,.35,1)' });
         fill.onfinish = function () { location.href = a.href; };
       });
     });
@@ -311,7 +318,7 @@
   var lenis = null;
   if (window.Lenis) {
     try {
-      lenis = new window.Lenis({ duration: 1.15, smoothWheel: true });
+      lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
       document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
           var t = document.querySelector(a.getAttribute('href'));

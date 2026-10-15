@@ -457,3 +457,4 @@ html.arriving body{overflow:hidden}
   .case .show-phone{right:3%}
 }
 .case .show-phone{right:4%}
+.tile .pop{position:absolute;top:-10px;right:16px;z-index:2;font-style:normal;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);border-radius:99px;padding:3px 10px;pointer-events:none}

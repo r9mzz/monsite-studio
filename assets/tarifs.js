@@ -3,7 +3,7 @@
 var FORMULES = [
   { id: 'renovation', nom: 'Rénovation', desc: 'Ton site actuel modernisé : nouveau design, optimisé pour le téléphone.', prix: 200 },
   { id: 'sur-mesure', nom: 'Site sur mesure', desc: 'Un site personnalisé, adapté à ce que tu vends.', prix: 320 },
-  { id: 'complet', nom: 'Site complet', desc: 'Design personnalisé, téléphone et ordinateur. Modifications incluses jusqu’à la version finale.', prix: 400 },
+  { id: 'complet', nom: 'Site complet', desc: 'Design personnalisé, téléphone et ordinateur. Modifications incluses jusqu’à la version finale.', prix: 400, populaire: true },
   { id: 'application', nom: 'Site + application', desc: 'Ton site complet, avec une application pour tes clients.', prix: 600 }
 ];
 var OPTIONS = [

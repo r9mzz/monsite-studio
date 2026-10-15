@@ -136,3 +136,10 @@ html{overflow-x:clip}
   .final5-row .ulink{align-self:center}
   .foot-grid div:last-child{align-items:flex-start;text-align:left}
 }
+
+/* Maquette gratuite : petite mention avec le point violet du logo */
+.h5-lead{display:flex;flex-direction:column;gap:14px}
+.free,.h5-foot p.free{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-serif);font-size:clamp(19px,1.5vw,23px);line-height:1;color:var(--accent)!important}
+.free::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.final5-free{margin-top:26px}
+@media (max-width:760px){.final5-free{justify-content:center;width:100%}}

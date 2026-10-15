@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#131218">
 <title>Créations · Mon Site Studio</title>
-<meta name="description" content="Les créations de Mon Site Studio : le site du traiteur Sweet Délices et des concepts pour chaque type de commerce.">
+<meta name="description" content="Les créations de Mon Site Studio : le site du traiteur Sweet Délices, sur ordinateur et sur téléphone.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=10">
-<link rel="stylesheet" href="assets/phone.css?v=10" media="(max-width: 760px)">
+<link rel="stylesheet" href="assets/style.css?v=11">
+<link rel="stylesheet" href="assets/phone.css?v=11" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
 <body>
@@ -22,7 +22,6 @@
     <a class="logo" href="./" aria-label="Mon Site Studio, accueil">monsite<i>.</i>studio</a>
     <nav class="nav-links" aria-label="Menu principal">
       <a class="hide-m" href="realisations.html" aria-current="page">Créations</a>
-      <a class="hide-m" href="./#methode">Méthode</a>
       <a class="btn btn-light btn-sm" href="devis.html">Devis gratuit</a>
     </nav>
   </div>
@@ -36,8 +35,7 @@
       <span class="line"><span>sait <span class="serif accent">faire.</span></span></span>
     </h1>
     <div class="sub reveal-fade">
-      <p>Un vrai projet client, et des concepts pour montrer comment on adapte le style à chaque commerce.</p>
-      <a class="btn btn-line" href="#concepts">Voir les concepts <span class="arrow">↓</span></a>
+      <p>Des sites faits pour de vrais commerces, sur ordinateur et sur téléphone.</p>
     </div>
   </section>
 
@@ -47,8 +45,14 @@
         <h2 id="sd-titre">Sweet Délices</h2>
         <span class="pill real">Client · Traiteur & pâtisserie</span>
     </div>
-    <div class="case-cover is-shot">
-      <img class="is-shot" src="img/sd-couverture.jpg" alt="Le site Sweet Délices sur ordinateur et sur téléphone" width="2400" height="1030">
+    <div class="show">
+      <div class="show-stage">
+        <figure class="show-frame">
+          <div class="show-bar"><i></i><i></i><i></i><span>sweetdelices.fr</span></div>
+          <img src="img/sd-ordinateur.jpg" alt="Le site Sweet Délices sur ordinateur" width="2400" height="1500">
+        </figure>
+        <figure class="show-phone"><img src="img/sd-telephone.jpg" alt="Le site Sweet Délices sur téléphone" width="780" height="1688" loading="lazy"></figure>
+      </div>
     </div>
     <div class="case-info">
       <div><h3>Le client</h3><p>Un traiteur et pâtissier fait maison : canette cakes, cookies garnis et buffets pour les mariages et les fêtes.</p></div>
@@ -66,40 +70,6 @@
         <div class="browser-bar"><i></i><i></i><i></i><div class="url">🔒 <b>Sweet Délices · Traiteur</b></div></div>
         <img src="img/sd-traiteur.jpg" alt="La page traiteur du site Sweet Délices" loading="lazy" width="2400" height="1500">
       </div>
-    </div>
-    <p class="swipe-note" aria-hidden="true">Glisse pour voir la suite →</p>
-  </section>
-
-  <!-- CONCEPTS -->
-  <section class="section wrap" id="concepts">
-    <div class="styles-head">
-      <div>
-        <p class="mono label">Concepts</p>
-        <h2 class="rise">Un style pour <span class="serif accent">chaque</span> métier.</h2>
-      </div>
-      <p>Ces commerces sont imaginés. On les a dessinés pour te montrer la variété des styles qu’on peut créer pour toi.</p>
-    </div>
-    <div class="concepts">
-      <a class="card" data-cursor="Le mien" href="devis.html">
-        <div class="frame" data-mini="nails"></div>
-        <div class="card-meta"><h3>Ongles Lina</h3><span class="pill">Onglerie</span></div>
-        <p>Doux et élégant : rose poudré, italique fine, prise de rendez-vous en avant.</p>
-      </a>
-      <a class="card" data-cursor="Le mien" href="devis.html">
-        <div class="frame" data-mini="barber"></div>
-        <div class="card-meta"><h3>K. Barber</h3><span class="pill">Barbier</span></div>
-        <p>Brut et direct : noir, lettres massives, rayures de barbier, réservation en un clic.</p>
-      </a>
-      <a class="card" data-cursor="Le mien" href="devis.html">
-        <div class="frame" data-mini="flowers"></div>
-        <div class="card-meta"><h3>Fleurs d’Amel</h3><span class="pill">Fleuriste</span></div>
-        <p>Frais et vivant : vert sauge, formes de fleurs, livraison mise en avant.</p>
-      </a>
-      <a class="card" data-cursor="Le mien" href="devis.html">
-        <div class="frame" data-mini="bakery"></div>
-        <div class="card-meta"><h3>Le Fournil de Nour</h3><span class="pill">Boulangerie</span></div>
-        <p>Chaleureux et artisanal : couleur blé, typo classique, commande pour le lendemain.</p>
-      </a>
     </div>
     <p class="swipe-note" aria-hidden="true">Glisse pour voir la suite →</p>
   </section>
@@ -128,6 +98,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-<script src="assets/app.js?v=10"></script>
+<script src="assets/app.js?v=11"></script>
+<script src="assets/show.js?v=11"></script>
 </body>
 </html>

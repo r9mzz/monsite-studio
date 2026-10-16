@@ -1,4 +1,4 @@
-/* Mon Site Studio — tarifs et contact, lus par index.html (page Devis) */
+/* Mon Site Studio — tarifs et contact, partagés par devis.html et mobile.html */
 /* ===== TARIFS : à modifier ici (une seule fois pour tout le site) (prix en euros ; null = « sur devis ») ===== */
 var FORMULES = [
   { id: 'renovation', nom: 'Rénovation', desc: 'Ton site actuel modernisé : nouveau design, optimisé pour le téléphone.', prix: 200 },

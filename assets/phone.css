@@ -1,0 +1,132 @@
+/* Mon Site Studio — réglages téléphone (chargé seulement sous 760 px de large).
+   Même site, mêmes pages : on resserre, on range, et on ajoute une barre d'onglets en bas comme une appli. */
+:root{--gutter:18px;--tab:66px;--safe:env(safe-area-inset-bottom,0px)}
+body{padding-bottom:calc(var(--tab) + var(--safe))}
+
+/* En-tête : le logo seul, la navigation passe en bas */
+.nav .wrap{padding-block:14px}
+.nav .logo{font-size:19px}
+.nav-links{display:none}
+
+/* Barre d'onglets */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:55;height:calc(var(--tab) + var(--safe));padding:4px 6px var(--safe);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(11,11,13,.9);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+.tabbar a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:600;color:var(--muted);transition:color .25s}
+.tabbar svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tabbar a.on{color:var(--fg)}
+.tabbar a::before{content:"";position:absolute;top:0;width:30px;height:3px;border-radius:0 0 3px 3px;background:var(--accent);transform:scaleX(0);transition:transform .35s var(--ease)}
+.tabbar a.on::before{transform:scaleX(1)}
+.tabbar a.cta:not(.on){color:var(--accent)}
+.tabbar a:active svg{transform:scale(.9)}
+
+/* Rythme général */
+.section{padding-block:64px}
+.label{margin-bottom:22px}
+.btn{padding:17px 22px;justify-content:center}
+.hero-actions{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+.hero-actions .btn{width:100%}
+.btn:active{transform:scale(.97)}
+
+/* Accueil */
+.hero{padding-top:92px;padding-bottom:40px}
+.hero h1{font-size:clamp(44px,13.6vw,60px);line-height:.95}
+.hero-split{gap:36px}
+.hero-text{gap:18px}
+.hero-lead{font-size:17px}
+.machine-caption{margin-top:12px}
+.marquee{padding-block:14px}
+.marquee-track span{font-size:30px}
+.marquee-track em{font-size:22px}
+.styles{padding-top:56px}
+.styles-head{margin-bottom:24px;gap:12px}
+.styles-head h2{font-size:clamp(34px,10vw,44px);line-height:1.02}
+.styles-head p{font-size:16px}
+.hscroll{scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter)}
+.htrack{gap:12px;padding-bottom:20px}
+.htrack .card{width:82vw;scroll-snap-align:start}
+.card .frame{border-radius:14px}
+.card-meta{margin-top:12px}
+.card-meta h3{font-size:21px}
+.trio{gap:0}
+.tri{padding:22px 0 26px;display:grid!important;grid-template-columns:44px 1fr;column-gap:16px;row-gap:6px;align-items:start}
+.tri .ico{grid-row:1/3;width:40px;height:40px}
+.tri h3{font-size:24px}
+.tri p{font-size:15px}
+.manifesto .big{font-size:clamp(28px,8.4vw,36px);line-height:1.1}
+.steps li{padding-block:22px!important;gap:6px}
+.steps li::before{font-size:40px}
+.steps h3{font-size:26px}
+.final{padding-block:72px}
+.final h2{font-size:clamp(44px,13vw,58px)}
+.final .row{margin-top:20px;gap:22px}
+.final .row p{font-size:17px}
+
+/* Pied de page */
+.foot{padding-top:36px}
+.foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 16px}
+.foot-grid div:last-child{grid-column:1/-1}
+.foot-word{font-size:15vw;margin-top:28px}
+
+/* Page Créations */
+.page-hero{padding-top:96px;padding-bottom:28px}
+.page-hero h1{font-size:clamp(46px,14vw,62px);line-height:.95}
+.page-hero .sub{margin-top:18px;gap:18px}
+.page-hero .sub p{font-size:17px}
+.page-hero .sub .btn{width:100%}
+.case-cover{aspect-ratio:4/4.3;border-radius:22px}
+.case-cover h2{font-size:44px;line-height:.95}
+.case-cover .over{padding:20px}
+.case-info{gap:22px;padding-block:24px}
+.case-info .btn{width:100%}
+/* Captures : on les fait glisser au lieu de les empiler */
+.shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gutter) * -1);padding:20px var(--gutter) 8px;scrollbar-width:none;align-items:stretch}
+.shots::-webkit-scrollbar{display:none}
+.shots > *{flex:none;scroll-snap-align:center}
+.shots .phone-shot{order:-1;width:52vw;max-width:220px;margin:0;border-width:6px;border-radius:26px}
+.shots .browser{width:84vw;align-self:center}
+.shots .browser img{max-height:none}
+.concepts{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gutter) * -1);padding:0 var(--gutter) 8px;scrollbar-width:none}
+.concepts::-webkit-scrollbar{display:none}
+.concepts .card{flex:none;width:82vw;scroll-snap-align:center}
+.concepts .card p{font-size:14px}
+.swipe-note{display:flex;align-items:center;gap:8px;margin-top:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* Page Devis : questions en pleine largeur, prix collé en bas */
+.est{gap:0}
+fieldset.q{padding-block:26px;gap:14px}
+.q legend,.q .q-title{font-size:24px;margin-bottom:14px}
+.choices{gap:8px}
+.choice span{padding:11px 15px;font-size:14.5px}
+.tile .in{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:16px 18px;border-radius:18px}
+.tile .in b{font-size:19px}
+.tile .in em{grid-row:1;grid-column:2;margin:0;padding:0;font-size:21px}
+.tile .in small{grid-column:1/-1;font-size:13.5px}
+.opt .in{padding:14px 16px;gap:12px}
+.opt .p{font-size:13px}
+.field input,.field textarea{font-size:16px}
+.panel{position:fixed!important;left:10px;right:10px;top:auto!important;bottom:calc(var(--tab) + var(--safe) + 8px);z-index:45;flex-direction:row;align-items:center;gap:12px;padding:10px 10px 10px 18px;border-radius:20px;background:rgba(28,28,33,.94);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 20px 40px -10px rgba(0,0,0,.65)}
+.panel > .mono{position:absolute;left:18px;top:9px;font-size:9.5px}
+.panel .price{font-size:27px;padding-top:13px;white-space:nowrap}
+.panel .price small{font-size:12px;color:var(--accent);margin-left:4px}
+.panel .lines,.panel .note{display:none}
+.panel .btn{margin-left:auto;padding:15px 18px;font-size:15px;flex:none}
+.panel .btn .lg{display:none}
+#est{padding-bottom:96px}
+/* Récap : volet qui monte du bas */
+.done-bg{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.62);opacity:0;transition:opacity .4s}
+.done{position:fixed;left:0;right:0;bottom:0;z-index:61;margin:0;max-height:90vh;overflow:auto;border:0;border-radius:26px 26px 0 0;background:var(--bg-2);padding:10px var(--gutter) calc(22px + var(--safe));gap:14px;transform:translateY(105%);transition:transform .5s var(--ease)}
+.sheet-open .done{transform:none}
+.sheet-open .done-bg{opacity:1}
+.done .grab{display:block;width:40px;height:4px;border-radius:2px;background:rgba(238,234,226,.25);margin:0 auto 6px}
+.done h3{font-size:30px;line-height:1.05}
+.done pre{font-size:12.5px;background:var(--bg)}
+.done .hero-actions .btn{width:100%}
+.done-close{display:inline-flex;background:transparent;font:inherit;font-weight:600;cursor:pointer;border-color:transparent!important;color:var(--muted)!important}
+.panel{transition:transform .45s var(--ease),opacity .3s}
+.panel.away{transform:translateY(140%);opacity:0;pointer-events:none}
+/* Pas d’effet de survol collant au doigt */
+@media (hover:none){.btn:hover::before{transform:translateY(101%)}.btn-line:hover{color:var(--fg)}.btn:active::before{transform:translateY(0)}.btn-line:active{color:var(--bg)}}
+.case-cover.is-shot{aspect-ratio:2400/1030;border-radius:14px}
+.case-head h2{font-size:44px}
+.tile .pop{grid-column:1/-1;margin-bottom:4px}
+.tile .in:has(.pop) em{grid-row:2}
+.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(19,18,24,.94)}

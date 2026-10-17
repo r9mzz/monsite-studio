@@ -480,3 +480,5 @@ html.arriving body{overflow:hidden}
 .v-diff{margin-top:clamp(18px,2vw,28px);color:var(--muted);max-width:70ch}
 .v-diff b{color:var(--fg);font-weight:600}
 @media (max-width:900px){.versions{grid-template-columns:1fr}}
+.v-more{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.v-more img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}

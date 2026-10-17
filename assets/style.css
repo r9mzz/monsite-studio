@@ -459,3 +459,24 @@ html.arriving body{overflow:hidden}
 .case .show-phone{right:4%}
 .tile .pop{order:-1;display:flex;align-items:center;gap:8px;font-style:normal;font-family:var(--font-serif);font-size:17px;line-height:1;color:var(--accent);margin-bottom:-2px}
 .tile .pop::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* ---------- Créations : deux versions côte à côte (TMD Motors) ---------- */
+.case + .case{margin-top:clamp(110px,14vw,220px)}
+.case-intro{max-width:56ch;color:var(--muted);font-size:clamp(17px,1.4vw,20px)}
+.versions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,36px);margin-top:clamp(10px,2vw,24px)}
+.version{display:flex;flex-direction:column;gap:22px;padding:clamp(22px,2.6vw,36px);border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+.v-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.v-top h3{font-size:clamp(30px,3.2vw,48px)}
+.v-top .mono{display:block;margin-bottom:10px}
+.v-price{text-align:right;font-family:var(--font-display);font-weight:800;font-size:clamp(34px,3.6vw,56px);letter-spacing:-.04em;line-height:.9;white-space:nowrap}
+.v-price small{display:block;margin-top:8px;font-family:var(--font-mono);font-weight:400;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.v-shot{position:relative;padding-bottom:10%}
+.v-shot .browser img{width:100%;height:auto}
+.v-shot .v-phone{position:absolute;right:4%;bottom:0;width:24%;border:5px solid #0B0C10;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.9)}
+.v-shot .v-phone img{width:100%;height:auto}
+.v-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.v-list li{padding:12px 0;border-bottom:1px solid var(--line);color:var(--fg);font-size:16px}
+.version .btn{align-self:flex-start;margin-top:auto}
+.v-diff{margin-top:clamp(18px,2vw,28px);color:var(--muted);max-width:70ch}
+.v-diff b{color:var(--fg);font-weight:600}
+@media (max-width:900px){.versions{grid-template-columns:1fr}}

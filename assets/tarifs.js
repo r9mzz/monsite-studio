@@ -3,8 +3,9 @@
 var FORMULES = [
   { id: 'renovation', nom: 'Rénovation', desc: 'Votre site actuel modernisé : nouveau design, optimisé pour le téléphone.', prix: 200 },
   { id: 'sur-mesure', nom: 'Site sur mesure', desc: 'Un site personnalisé, adapté à votre activité.', prix: 320 },
-  { id: 'complet', nom: 'Site complet', desc: 'Design personnalisé, téléphone et ordinateur. Modifications incluses jusqu’à la version finale.', prix: 400, populaire: true },
-  { id: 'application', nom: 'Site + application', desc: 'Votre site complet, avec une application pour vos clients.', prix: 600 }
+  { id: 'complet', nom: 'Site complet', desc: 'Design personnalisé, téléphone et ordinateur. Modifications incluses jusqu’à la version finale.', prix: 350, populaire: true },
+  { id: 'premium', nom: 'Site premium', desc: 'Le site complet, avec des animations sur mesure et une mise en scène haut de gamme.', prix: 500 },
+  { id: 'application', nom: 'Site + application', desc: 'Votre site complet, avec une application pour vos clients.', prix: null }
 ];
 var OPTIONS = [
   { id: 'logo', nom: 'Création du logo', desc: 'Un logo simple et propre, prêt pour Instagram.', prix: null },

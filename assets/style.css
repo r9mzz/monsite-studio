@@ -483,3 +483,10 @@ html.arriving body{overflow:hidden}
 .v-more{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .v-more img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
 .tiles .tile:last-child:nth-child(odd){grid-column:1/-1}
+
+/* Devis : ce que le client y gagne, avant le prix */
+.tile .in .gain{font-size:15px;line-height:1.4;color:var(--fg)}
+.panel .gain-l{margin:0;font-family:var(--font-display);font-weight:600;font-size:clamp(18px,1.5vw,21px);letter-spacing:-.02em;line-height:1.25}
+.panel .roi{margin:-6px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+.panel .roi b{color:var(--accent);font-weight:600}
+.roi-m{display:none}

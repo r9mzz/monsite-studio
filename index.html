@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#131218">
 <title>Mon Site Studio</title>
-<meta name="description" content="Mon Site Studio crée des sites qui donnent envie pour les commerçants, artisans et indépendants. Estimation gratuite.">
+<meta name="description" content="Mon Site Studio crée des sites qui attirent des clients pour les commerçants, artisans et indépendants. Beaux, rapides, bien référencés. Estimation gratuite.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=19">
-<link rel="stylesheet" href="assets/home.css?v=16">
-<link rel="stylesheet" href="assets/phone.css?v=16" media="(max-width: 760px)">
+<link rel="stylesheet" href="assets/style.css?v=20">
+<link rel="stylesheet" href="assets/home.css?v=17">
+<link rel="stylesheet" href="assets/phone.css?v=17" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
 <body>
@@ -38,10 +38,37 @@
       <span class="line"><span><span class="serif accent">envie</span> de <span class="rot" aria-hidden="true"><span class="rot-w on">cliquer.</span><span class="rot-w">commander.</span><span class="rot-w">réserver.</span><span class="rot-w">revenir.</span></span></span></span>
     </h1>
     <div class="h5-foot reveal-fade">
-      <p>Nous créons le site de votre commerce.<br>Élégant, rapide, pensé pour le téléphone.</p>
+      <p class="h5-lead">Un site beau, rapide et bien placé sur Google, pour que les clients vous choisissent.</p>
       <div class="h5-cta">
         <a class="btn btn-light magnetic" href="devis.html">Estimer mon site <span class="arrow">→</span></a>
         <a class="ulink" href="realisations.html">Voir les créations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ce que le site rapporte -->
+  <section class="sec5 wrap why" aria-labelledby="t-why">
+    <div class="why-head">
+      <p class="mono rv">Ce que votre site vous apporte</p>
+      <h2 id="t-why" class="split-lines">Un site qui travaille pour vous, même quand vous êtes fermé.</h2>
+      <p class="why-lead rv">Avant de se déplacer, vos clients regardent leur téléphone. S’ils ne vous trouvent pas, ou si ce qu’ils voient ne leur donne pas envie, ils vont chez un autre.</p>
+    </div>
+    <ol class="why-list">
+      <li class="rv"><span class="mono">01</span><h3>On vous trouve.</h3><p>Quelqu’un cherche votre métier près de chez lui : il doit tomber sur vous, pas sur votre concurrent. Votre site est pensé pour Google dès sa création.</p></li>
+      <li class="rv"><span class="mono">02</span><h3>On vous fait confiance.</h3><p>Un beau site rassure en quelques secondes. Photos, prix, horaires : le client a tout sous les yeux et n’hésite plus.</p></li>
+      <li class="rv"><span class="mono">03</span><h3>On vous choisit.</h3><p>Réserver, commander, appeler : tout se fait en un geste depuis le téléphone, à toute heure.</p></li>
+    </ol>
+    <div class="calc rv" id="calc">
+      <div class="calc-in">
+        <p class="mono">Faites le calcul</p>
+        <label class="calc-f"><span>Clients en plus par mois</span><output id="c-n">4</output><input type="range" id="c-nr" min="1" max="30" value="4" aria-label="Clients en plus par mois"></label>
+        <label class="calc-f"><span>Dépense moyenne d’un client</span><output id="c-p">40 €</output><input type="range" id="c-pr" min="10" max="300" step="5" value="40" aria-label="Dépense moyenne d’un client, en euros"></label>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <span class="mono">Chaque année, en plus</span>
+        <b id="c-tot">1 920 €</b>
+        <p id="c-txt">Un site sur mesure est rentabilisé dès le premier mois.</p>
+        <a class="btn btn-light magnetic" href="devis.html">Estimer mon site <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -51,9 +78,9 @@
     <div class="qa-head"><p class="mono rv">Questions</p><h2 id="t-faq" class="split-lines">Simple et clair.</h2></div>
     <div class="qa-list">
       <details class="rv"><summary>Comment se déroule un projet ?<i></i></summary><p>Vous nous présentez votre commerce. Nous concevons votre site, vous nous donnez votre avis et nous l’ajustons avec vous, puis nous le mettons en ligne.</p></details>
-      <details class="rv"><summary>Les modifications sont-elles incluses ?<i></i></summary><p>Oui, jusqu’à ce que la version finale vous convienne.</p></details>
+      <details class="rv"><summary>Les modifications sont-elles incluses ?<i></i></summary><p>Oui, jusqu’à ce que la version finale vous convienne. Vous ne prenez aucun risque.</p></details>
       <details class="rv"><summary>Je n’ai ni logo ni textes.<i></i></summary><p>Aucun problème : nous pouvons créer votre logo et rédiger vos textes.</p></details>
-      <details class="rv"><summary>Combien coûte un site ?<i></i></summary><p>Le prix dépend de vos besoins. <a class="ulink" href="devis.html">Faites votre estimation gratuite</a> en une minute.</p></details>
+      <details class="rv"><summary>Combien coûte un site ?<i></i></summary><p>Le prix dépend de vos besoins. <a class="ulink" href="devis.html">Faites votre estimation gratuite</a> en une minute : vous verrez combien de clients suffisent à le rembourser.</p></details>
     </div>
   </section>
 
@@ -82,6 +109,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script src="assets/app.js?v=16"></script>
-<script src="assets/home.js?v=16"></script>
+<script src="assets/home.js?v=17"></script>
 </body>
 </html>

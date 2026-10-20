@@ -130,3 +130,9 @@ fieldset.q{padding-block:26px;gap:14px}
 .tile .pop{grid-column:1/-1;margin-bottom:4px}
 .tile .in:has(.pop) em{grid-row:2}
 .nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(19,18,24,.94)}
+
+/* Devis : sur téléphone, la barre de prix reste sur une ligne ; « le prix de N clients » passe sous les formules */
+.panel .gain-l,.panel .roi{display:none}
+.roi-m{display:block;margin:16px 2px 0;color:var(--muted);font-size:15px;line-height:1.5}
+.roi-m b{color:var(--accent);font-weight:600}
+.tile .in .gain{grid-column:1/-1;font-size:14.5px}

@@ -130,3 +130,33 @@
     }
   }
 })();
+
+/* ---------- Calcul : ce que le site rapporte par an ---------- */
+(function () {
+  var nr = document.getElementById('c-nr'), pr = document.getElementById('c-pr');
+  if (!nr || !pr) return;
+  var SITE = 350; // prix du site sur mesure, pour dire en combien de temps il est rentabilisé
+  var tot = document.getElementById('c-tot'), txt = document.getElementById('c-txt');
+  var fmt = function (n) { return Math.round(n).toLocaleString('fr-FR').replace(/\s/g, ' ') + ' €'; };
+  var shown = { v: 0 }, gsap = window.gsap;
+  var fill = function (r) { r.style.setProperty('--v', ((r.value - r.min) / (r.max - r.min) * 100) + '%'); };
+  function update(anim) {
+    var n = +nr.value, p = +pr.value, year = n * p * 12, mois = Math.ceil(SITE / (n * p));
+    document.getElementById('c-n').textContent = n;
+    document.getElementById('c-p').textContent = p + ' €';
+    fill(nr); fill(pr);
+    txt.textContent = mois <= 1 ? 'Un site sur mesure est rentabilisé dès le premier mois.'
+      : 'Un site sur mesure est rentabilisé en ' + mois + ' mois environ, puis tout le reste est pour vous.';
+    if (gsap && anim !== false) gsap.to(shown, { v: year, duration: .6, ease: 'expo.out', onUpdate: function () { tot.textContent = fmt(shown.v); } });
+    else { shown.v = year; tot.textContent = fmt(year); }
+  }
+  nr.addEventListener('input', update); pr.addEventListener('input', update);
+  update(false);
+  // le chiffre monte la première fois que le bloc apparaît
+  if (gsap && window.ScrollTrigger && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var end = shown.v; shown.v = 0; tot.textContent = fmt(0);
+    window.ScrollTrigger.create({ trigger: '#calc', start: 'top 75%', once: true, onEnter: function () {
+      gsap.to(shown, { v: end, duration: 1.6, ease: 'expo.out', onUpdate: function () { tot.textContent = fmt(shown.v); } });
+    } });
+  }
+})();

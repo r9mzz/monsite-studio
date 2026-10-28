@@ -20,4 +20,6 @@ var DEFAULT_FORMULE = 'sur-mesure';
 var PANIER = { 'Traiteur / Pâtisserie': 40, 'Coiffeur / Barbier': 25, 'Beauté / Onglerie': 45, 'Restaurant / Snack': 20, 'Boutique': 40, 'Artisan': 250, 'Créateur': 50, 'Autre': 40 };
 // Adresse qui reçoit les demandes (vide = bouton e-mail caché)
 var MS_MAIL = 'contactmonsite.studio@gmail.com';
+// Codes promo des partenaires : remise en % pour le client, et qui l'a apporté
+var CODES = { SWEETDELICES: { remise: 5, parrain: 'Sweet Délices' } };
 /* ===================================================================== */

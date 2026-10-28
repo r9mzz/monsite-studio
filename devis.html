@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=21">
+<link rel="stylesheet" href="assets/style.css?v=22">
 <link rel="stylesheet" href="assets/phone.css?v=18" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
@@ -68,6 +68,7 @@
             <div class="field"><label for="prenom">Prénom</label><input id="prenom" name="prenom" autocomplete="given-name" placeholder="Amina"></div>
             <div class="field"><label for="commerce">Nom du commerce</label><input id="commerce" name="commerce" placeholder="Les Délices d’Amina"></div>
             <div class="field full"><label for="contact">Instagram ou téléphone</label><input id="contact" name="contact" placeholder="@votrecommerce ou 06 12 34 56 78"></div>
+            <div class="field full"><label for="promo">Code promo (facultatif)</label><input id="promo" name="promo" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Votre code, si on vous en a donné un"><small class="promo-msg" id="promo-msg" aria-live="polite"></small></div>
             <div class="field full"><label for="message">Votre demande en quelques mots (facultatif)</label><textarea id="message" name="message" placeholder="Votre activité, le style souhaité, un site que vous appréciez, un besoin particulier (prise de rendez-vous, commande en ligne…)"></textarea></div>
           </div>
           <p class="err" id="err" role="alert"></p>
@@ -113,7 +114,7 @@
   </div>
 </footer>
 
-<script src="assets/tarifs.js?v=20"></script>
+<script src="assets/tarifs.js?v=21"></script>
 <script>
 (function () {
   var fmt = function (n) { return n.toLocaleString('fr-FR').replace(/ | /g, ' '); };
@@ -140,7 +141,11 @@
     });
     var tot = f.prix, open = false;
     opts.forEach(function (o) { if (o.prix == null) open = true; else tot += o.prix; });
-    return { f: f, opts: opts, tot: tot, open: open };
+    var code = document.getElementById('promo').value.trim().toUpperCase().replace(/\s+/g, '');
+    var promo = (typeof CODES !== 'undefined' && CODES[code]) ? { code: code, remise: CODES[code].remise } : null;
+    var avant = tot;
+    if (promo && tot != null) tot = Math.round(tot * (100 - promo.remise) / 100);
+    return { f: f, opts: opts, tot: tot, avant: avant, open: open, code: code, promo: promo };
   }
   var priceEl = document.getElementById('price');
   function render() {
@@ -159,10 +164,15 @@
     document.getElementById('roi-m').innerHTML = roi.innerHTML;
     document.getElementById('lines').innerHTML =
       '<li><span>' + s.f.nom + '</span><span>' + from(s.f) + '</span></li>' +
-      s.opts.map(function (o) { return '<li><span>' + o.nom + '</span><span>' + plus(o.prix) + '</span></li>'; }).join('');
+      s.opts.map(function (o) { return '<li><span>' + o.nom + '</span><span>' + plus(o.prix) + '</span></li>'; }).join('') +
+      (s.promo ? '<li><span>Code ' + s.promo.code + '</span><span>' + (s.avant == null ? '-' + s.promo.remise + ' %' : '- ' + fmt(s.avant - s.tot) + ' €') + '</span></li>' : '');
+    var pm = document.getElementById('promo-msg');
+    pm.textContent = s.promo ? '✓ Code valable : -' + s.promo.remise + ' % sur votre site' : (s.code.length >= 4 ? 'Ce code n’existe pas. Vérifiez l’orthographe.' : '');
+    pm.className = 'promo-msg' + (s.promo ? ' ok' : '');
     if (window.gsap) window.gsap.fromTo(priceEl, { y: 8, opacity: .4 }, { y: 0, opacity: 1, duration: .45, ease: 'expo.out' });
   }
   form.addEventListener('change', render);
+  document.getElementById('promo').addEventListener('input', render);
   render();
 
   form.addEventListener('submit', function (e) {
@@ -187,6 +197,7 @@
       'Je suis ' + v('prenom') + ', de ' + v('commerce') + ' (' + metier + ').\n' +
       'Site : ' + s.f.nom + '\n' +
       'Estimation : ' + (s.f.des ? 'à partir de ' : '') + money(s.tot) + (s.open ? ' + options sur devis' : '') + '\n' +
+      (s.promo ? 'Code promo : ' + s.promo.code + ' (-' + s.promo.remise + ' %)\n' : (s.code ? 'Code promo : ' + s.code + ' (non reconnu)\n' : '')) +
       'Contact : ' + v('contact') + (v('message') ? '\nMessage : ' + v('message') : '');
     document.getElementById('recap').textContent = recap;
     document.getElementById('done-name').textContent = v('prenom');

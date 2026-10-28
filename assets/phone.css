@@ -136,3 +136,7 @@ fieldset.q{padding-block:26px;gap:14px}
 .roi-m{display:block;margin:16px 2px 0;color:var(--muted);font-size:15px;line-height:1.5}
 .roi-m b{color:var(--accent);font-weight:600}
 .tile .in .gain{grid-column:1/-1;font-size:14.5px}
+
+/* Verre liquide */
+.tabbar.verre-liquide{background:rgba(11,11,13,.62)}
+.panel.verre-liquide{background:rgba(28,28,33,.72)}

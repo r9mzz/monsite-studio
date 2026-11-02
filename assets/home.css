@@ -179,16 +179,19 @@ html{overflow-x:clip}
 }
 .h5-foot p.h5-lead{max-width:44ch}
 
-/* Un vrai site juste sous le titre */
-.show5{padding-top:clamp(10px,2vw,30px)}
-.show5-stage{position:relative;display:block;padding-right:clamp(30px,7vw,110px)}
-.show5-pc{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#1B1A21;box-shadow:0 50px 100px -40px rgba(0,0,0,.8)}
-.show5-bar{display:flex;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line)}
-.show5-bar i{width:10px;height:10px;border-radius:50%;background:rgba(238,234,226,.16)}
-.show5-pc img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top}
-.show5-tel{position:absolute;right:0;bottom:-6%;margin:0;width:clamp(96px,17vw,250px);border-radius:clamp(16px,2.4vw,34px);overflow:hidden;border:clamp(3px,.5vw,7px) solid #1B1A21;outline:1px solid var(--line);box-shadow:0 40px 70px -24px rgba(0,0,0,.85)}
-.show5-tel img{display:block;width:100%;height:auto}
-.show5-cap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:clamp(34px,5vw,64px) 0 0;color:var(--muted);font-size:15px}
+/* Nos meilleures maquettes */
+.mq5{padding-top:clamp(40px,6vw,90px)}
+.mq5-head .mono,.steps5 .qa-head .mono,.price5 .qa-head .mono{margin:0 0 16px}
+.mq5-head{margin-bottom:clamp(26px,3.4vw,48px)}
+.mq5-head h2{font-size:clamp(34px,4.4vw,68px);line-height:1;letter-spacing:-.035em}
+.mq5-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g3)}
+.mq5-card{display:block;color:var(--fg)}
+.mq5-card img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);transition:transform .5s var(--ease)}
+.mq5-card:hover img{transform:translateY(-6px)}
+.mq5-card span{display:block;margin-top:12px;font-size:15px;color:var(--muted)}
+.mq5-cap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin:clamp(30px,4vw,56px) 0 0;color:var(--muted);font-size:17px}
+@media (max-width:900px){.mq5-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.mq5-grid{grid-template-columns:1fr}}
 
 /* Étapes et tarifs */
 .steps5 .qa-head,.price5 .qa-head{margin-bottom:clamp(30px,4vw,56px)}

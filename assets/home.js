@@ -3,6 +3,14 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var gsap = window.gsap, ST = window.ScrollTrigger;
 
+  /* ---------- Tarifs : mêmes prix que la page Devis ---------- */
+  var pl = document.getElementById('price5');
+  if (pl && typeof FORMULES !== 'undefined') {
+    pl.innerHTML = FORMULES.filter(function (f) { return f.prix != null; }).map(function (f) {
+      return '<article class="price5-card' + (f.populaire ? ' top' : '') + '"><h3>' + f.nom + '</h3><b>' + (f.des ? '<small>dès</small>' : '') + f.prix + ' €</b><p>' + f.gain + '</p><a class="ulink" href="devis.html">Recevoir ma maquette gratuite</a></article>';
+    }).join('');
+  }
+
   /* ---------- Mot qui change dans le titre ---------- */
   var rot = document.querySelector('.rot');
   if (rot) {

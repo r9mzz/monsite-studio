@@ -19,8 +19,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/style.css?v=21">
-<link rel="stylesheet" href="assets/home.css?v=21">
-<link rel="stylesheet" href="assets/phone.css?v=19" media="(max-width: 760px)">
+<link rel="stylesheet" href="assets/home.css?v=22">
+<link rel="stylesheet" href="assets/phone.css?v=20" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
 <body>
@@ -59,14 +59,14 @@
   <section class="mq5 wrap" aria-labelledby="t-mq">
     <div class="mq5-head"><p class="mono rv">Maquettes</p><h2 id="t-mq" class="split-lines">Voilà ce qu’on peut préparer pour vous.</h2></div>
     <div class="mq5-grid carrousel" aria-label="Maquettes, glissez pour voir la suite">
-      <a class="mq5-card rv" href="devis.html"><img decoding="async" loading="lazy" src="img/mq-resto.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour restaurant"><span>Restaurant</span></a>
-      <a class="mq5-card rv" href="devis.html"><img decoding="async" loading="lazy" src="img/mq-voiture.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour voiture de mariage"><span>Voiture de mariage</span></a>
-      <a class="mq5-card rv" href="devis.html"><img decoding="async" loading="lazy" src="img/mq-negafa.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour negafa"><span>Negafa</span></a>
-      <a class="mq5-card rv" href="devis.html"><img decoding="async" loading="lazy" src="img/mq-boutique.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour tenues traditionnelles"><span>Tenues traditionnelles</span></a>
-      <a class="mq5-card rv" href="devis.html"><img decoding="async" loading="lazy" src="img/mq-piscine.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour pisciniste"><span>Pisciniste</span></a>
-      <a class="mq5-card rv" href="devis.html"><img decoding="async" loading="lazy" src="img/mq-mode.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour boutique de mode"><span>Boutique de mode</span></a>
+      <a class="mq5-card rv" href="devis.html"><div class="mq5-media"><img decoding="async" loading="lazy" src="img/mq-resto.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour restaurant"></div><span><b>Restaurant.</b> La carte et la commande en un geste.</span></a>
+      <a class="mq5-card rv" href="devis.html"><div class="mq5-media"><img decoding="async" loading="lazy" src="img/mq-voiture.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour voiture de mariage"></div><span><b>Voiture de mariage.</b> Le véhicule, les options, la demande de devis.</span></a>
+      <a class="mq5-card rv" href="devis.html"><div class="mq5-media"><img decoding="async" loading="lazy" src="img/mq-negafa.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour negafa"></div><span><b>Negafa.</b> Les tenues et la prise de rendez-vous.</span></a>
+      <a class="mq5-card rv" href="devis.html"><div class="mq5-media"><img decoding="async" loading="lazy" src="img/mq-boutique.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour tenues traditionnelles"></div><span><b>Tenues traditionnelles.</b> Une vitrine pour chaque collection.</span></a>
+      <a class="mq5-card rv" href="devis.html"><div class="mq5-media"><img decoding="async" loading="lazy" src="img/mq-piscine.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour pisciniste"></div><span><b>Pisciniste.</b> Les réalisations et la demande de devis.</span></a>
+      <a class="mq5-card rv" href="devis.html"><div class="mq5-media"><img decoding="async" loading="lazy" src="img/mq-mode.jpg" width="1400" height="856" alt="Maquette de page d’accueil pour boutique de mode"></div><span><b>Boutique de mode.</b> Les nouveautés mises en avant.</span></a>
     </div>
-    <div class="car-dots" data-for="mq" aria-hidden="true"></div>
+    <div class="car-ctrl auto"><div class="car-dots" aria-hidden="true"></div><button class="car-play" type="button" aria-label="Mettre en pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M8 5v14M16 5v14"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button></div>
     <p class="mq5-cap rv"><span>Chaque maquette est créée pour un métier. La vôtre est gratuite et sans engagement.</span><a class="btn btn-light magnetic" href="devis.html">Recevoir ma maquette gratuite <span class="arrow">→</span></a></p>
   </section>
 
@@ -111,7 +111,7 @@
   <section class="sec5 wrap price5" aria-labelledby="t-price">
     <div class="qa-head"><p class="mono rv">Tarifs</p><h2 id="t-price" class="split-lines">Des prix clairs.</h2></div>
     <div class="price5-list carrousel" id="price5" aria-label="Formules, glissez pour comparer"></div>
-    <div class="car-dots" aria-hidden="true"></div>
+    <div class="car-ctrl"><div class="car-dots" aria-hidden="true"></div></div>
   </section>
 
   <!-- Questions : courtes -->
@@ -150,7 +150,7 @@
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script src="assets/tarifs.js?v=21"></script>
 <script src="assets/app.js?v=16"></script>
-<script type="module">import { verre } from "./assets/verre-liquide.js?v=1"; verre(".nav", { si: "scrolled", flou: 6 }); verre(".tabbar"); verre(".panel"); verre(".btn-line"); verre(".car-dots");</script>
-<script src="assets/home.js?v=19"></script>
+<script type="module">import { verre } from "./assets/verre-liquide.js?v=1"; verre(".nav", { si: "scrolled", flou: 6 }); verre(".tabbar"); verre(".panel"); verre(".btn-line"); verre(".car-dots"); verre(".car-play");</script>
+<script src="assets/home.js?v=20"></script>
 </body>
 </html>

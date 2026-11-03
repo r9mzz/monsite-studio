@@ -11,15 +11,19 @@
     }).join('');
   }
 
-  /* ---------- Carrousels (téléphone) : points, carte active, Sur mesure au centre ---------- */
+  /* ---------- Carrousels (téléphone), façon galerie Apple ----------
+     Points sous la galerie ; dans la galerie « auto », le point actif se remplit comme une barre de lecture,
+     puis on passe à la maquette suivante. Bouton lecture/pause ; tout s'arrête dès qu'on touche ou hors écran. */
   var phone = window.matchMedia('(max-width: 760px)');
   document.querySelectorAll('.carrousel').forEach(function (car) {
     var cards = Array.prototype.slice.call(car.children);
-    var dots = car.nextElementSibling && car.nextElementSibling.classList.contains('car-dots') ? car.nextElementSibling : null;
+    var ctrl = car.nextElementSibling && car.nextElementSibling.classList.contains('car-ctrl') ? car.nextElementSibling : null;
+    var dots = ctrl && ctrl.querySelector('.car-dots'), btn = ctrl && ctrl.querySelector('.car-play');
     if (dots) dots.innerHTML = cards.map(function () { return '<i></i>'; }).join('');
     var pts = dots ? dots.children : [];
     var cur = -1;
     function centre(i) { var c = cards[i]; return c.offsetLeft + c.offsetWidth / 2 - car.clientWidth / 2; }
+    function go(i) { car.scrollTo({ left: centre(i), behavior: reduce ? 'auto' : 'smooth' }); }
     function mark() {
       var mid = car.scrollLeft + car.clientWidth / 2, best = 0, d = 1e9;
       cards.forEach(function (c, i) { var k = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (k < d) { d = k; best = i; } });
@@ -27,9 +31,33 @@
       cards.forEach(function (c, i) { c.classList.toggle('actif', i === best); if (pts[i]) pts[i].classList.toggle('on', i === best); });
     }
     car.addEventListener('scroll', function () { requestAnimationFrame(mark); }, { passive: true });
-    Array.prototype.forEach.call(pts, function (p, i) {
-      p.addEventListener('click', function () { car.scrollTo({ left: centre(i), behavior: 'smooth' }); });
-    });
+    Array.prototype.forEach.call(pts, function (p, i) { p.addEventListener('click', function () { go(i); }); });
+
+    // Lecture automatique
+    if (ctrl && ctrl.classList.contains('auto')) {
+      var auto = !reduce;
+      function setAuto(on) {
+        auto = on; ctrl.classList.toggle('pause', !on);
+        if (btn) btn.setAttribute('aria-label', on ? 'Mettre en pause' : 'Lire');
+      }
+      setAuto(auto);
+      if (btn) btn.addEventListener('click', function () {
+        // relancer depuis la fin : on repart de la première
+        if (!auto && cur === cards.length - 1) go(0);
+        setAuto(!auto);
+      });
+      if (dots) dots.addEventListener('animationend', function (e) {
+        if (!auto || !e.target.classList.contains('on')) return;
+        go((cur + 1) % cards.length);
+      });
+      ['touchstart', 'pointerdown', 'wheel'].forEach(function (ev) {
+        car.addEventListener(ev, function () { if (auto) setAuto(false); }, { passive: true });
+      });
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
+        es.forEach(function (e) { ctrl.classList.toggle('hors', !e.isIntersecting); });
+      }, { threshold: .5 }).observe(car);
+    }
+
     // La formule mise en avant (Sur mesure) démarre au centre
     function start() {
       var top = cards.findIndex(function (c) { return c.classList.contains('top'); });

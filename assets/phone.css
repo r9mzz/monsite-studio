@@ -147,40 +147,48 @@ fieldset.q{padding-block:26px;gap:14px}
 .mq5-head{margin-bottom:20px}
 .mq5-head h2,.steps5 h2,.price5 h2,.why-head h2{font-size:clamp(28px,8.2vw,34px);line-height:1.05}
 .steps5 .qa-head,.price5 .qa-head{margin-bottom:22px}
-.carrousel{position:relative;display:flex!important;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;margin-inline:calc(var(--gutter) * -1);padding:6px var(--gutter) 4px;scroll-padding-inline:var(--gutter);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.carrousel{position:relative;display:flex!important;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;margin-inline:calc(var(--gutter) * -1);padding:6px var(--gutter) 4px;scroll-padding-inline:var(--gutter);scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .carrousel::-webkit-scrollbar{display:none}
-.carrousel > *{flex:none;scroll-snap-align:center;scroll-snap-stop:always}
+.carrousel > *{flex:none;scroll-snap-align:center}
 .carrousel > .rv{opacity:1;transform:none}
-.carrousel > *{transition:opacity .45s var(--ease),transform .45s var(--ease)}
-.carrousel > *:not(.actif){opacity:.5;transform:scale(.94)}
-.mq5-grid.carrousel{padding-inline:7vw;scroll-padding-inline:7vw}
-.mq5-grid.carrousel > *{width:86vw}
+/* Galerie des maquettes, sur le modèle des galeries d'Apple : cartes arrondies, voisines visibles, légende dessous */
+.mq5-grid.carrousel{padding-inline:10vw;scroll-padding-inline:10vw}
+.mq5-grid.carrousel > *{width:80vw}
 .mq5-media{border-radius:20px}
-.mq5-card img{transform-origin:50% 40%}
-.mq5-card span{margin-top:14px;padding-inline:4px;font-size:15px;line-height:1.4;text-align:left}
-.carrousel > .mq5-card:not(.actif){opacity:.4;transform:scale(.96)}
-.carrousel > .mq5-card:not(.actif) span{opacity:0}
-.mq5-card span{transition:opacity .4s}
+.mq5-card img{transform-origin:50% 45%}
+.mq5-card span{margin-top:16px;padding-inline:2px;width:93%;font-size:14.5px;line-height:1.3;font-weight:600;letter-spacing:-.01em;text-align:left;color:var(--muted)}
 .price5-list.carrousel{padding-inline:12vw;scroll-padding-inline:12vw}
 .price5-list.carrousel > *{width:76vw;padding:24px 22px}
 .price5-card b{margin:14px 0 10px;font-size:40px}
 .price5-card p{margin-bottom:18px}
 .pop5{display:inline-block;align-self:flex-start;margin-bottom:12px;padding:5px 10px;border-radius:99px;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:rgba(185,168,255,.12)}
-.car-ctrl{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:18px}
-.car-dots{display:flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:99px;background:#1E1D24}
-.car-dots i{position:relative;overflow:hidden;width:7px;height:7px;border-radius:4px;background:#5A5762;transition:width .45s var(--ease),background .35s}
-.car-dots i.on{width:22px;background:var(--fg)}
-.car-ctrl.auto .car-dots i.on{width:36px;background:#5A5762}
-.car-ctrl.auto .car-dots i.on::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--fg);transform-origin:0 50%;transform:scaleX(0);animation:carFill 5s linear forwards}
-.car-ctrl.auto:is(.pause,.hors) .car-dots i.on::after{animation-play-state:paused}
-@keyframes carFill{to{transform:scaleX(1)}}
-.car-play{flex:none;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:#1E1D24;color:var(--fg);cursor:pointer}
-.car-play svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;fill:none}
-.car-play .i-play{display:none;fill:currentColor;stroke-linejoin:round;stroke-width:1.5}
-.car-ctrl.pause .car-play .i-pause{display:none}
-.car-ctrl.pause .car-play .i-play{display:block}
-.car-play:active{transform:scale(.92)}
-.car-dots.verre-liquide,.car-play.verre-liquide{background:rgba(30,29,36,.6)}
+
+/* Lecture : bouton rond dans le coin, entouré d'un anneau qui se remplit */
+.mq5-play{display:grid;place-items:center;position:absolute;right:12px;bottom:12px;z-index:2;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:rgba(19,18,24,.55);color:#fff;cursor:pointer;opacity:0;transition:opacity .2s linear,transform .2s}
+.mq5-card.actif .mq5-play{opacity:1}
+.mq5-play:active{transform:scale(.95)}
+.mq5-play svg.ic{width:14px;height:14px;fill:currentColor}
+.mq5-play .ic{display:none}
+.mq5-card.joue .i-pause,.mq5-card:not(.joue):not(.fini) .i-play,.mq5-card.fini .i-revoir{display:block}
+.mq5-card.fini .mq5-play .ic.i-revoir{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.mq5-play .anneau{position:absolute;inset:-1px;width:40px;height:40px;transform:rotate(-90deg);fill:none;stroke-linecap:round;stroke-width:2.4}
+.mq5-play .anneau .piste{stroke:rgba(255,255,255,.25)}
+.mq5-play .anneau .prog{stroke:var(--accent);stroke-dasharray:113.1;stroke-dashoffset:113.1}
+@media (prefers-reduced-motion:no-preference){
+  .mq5-card.lance img{animation:mqZoom 6s cubic-bezier(.3,.1,.3,1) forwards}
+  .mq5-card.lance .prog{animation:mqRing 6s linear forwards}
+  .mq5-card.lance:not(.joue) img,.mq5-card.lance:not(.joue) .prog{animation-play-state:paused}
+}
+@keyframes mqZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes mqRing{to{stroke-dashoffset:0}}
+
+/* Flèches sous la galerie, alignées à droite */
+.car-nav{display:flex;justify-content:flex-end;gap:14px;margin-top:18px}
+.car-nav button{display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:50%;background:#2A2931;color:var(--fg);cursor:pointer;transition:opacity .2s,background-color .1s linear}
+.car-nav button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.car-nav button:disabled{opacity:.42;cursor:default}
+.car-nav button:active:not(:disabled){transform:scale(.95)}
+.car-nav button.verre-liquide{background:rgba(42,41,49,.7)}
 .mq5-cap{flex-direction:column;align-items:stretch;gap:14px;margin-top:22px;font-size:15px;text-align:center}
 .mq5-cap .btn{width:100%}
 
@@ -194,10 +202,3 @@ fieldset.q{padding-block:26px;gap:14px}
 .steps5-list{gap:0}
 .steps5-list li{padding:16px 0}
 .steps5-list h3{margin:4px 0 6px;font-size:21px}
-
-/* Effet vidéo : la maquette affichée avance doucement pendant sa lecture */
-@media (prefers-reduced-motion:no-preference){
-  .mq5-card.actif img{animation:mqZoom 5s linear forwards}
-  .mq5:has(.car-ctrl:is(.pause,.hors)) .mq5-card.actif img{animation-play-state:paused}
-}
-@keyframes mqZoom{from{transform:scale(1)}to{transform:scale(1.07)}}

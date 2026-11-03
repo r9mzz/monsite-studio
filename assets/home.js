@@ -11,51 +11,65 @@
     }).join('');
   }
 
-  /* ---------- Carrousels (téléphone), façon galerie Apple ----------
-     Points sous la galerie ; dans la galerie « auto », le point actif se remplit comme une barre de lecture,
-     puis on passe à la maquette suivante. Bouton lecture/pause ; tout s'arrête dès qu'on touche ou hors écran. */
+  /* ---------- Carrousels (téléphone), sur le modèle des galeries d'Apple ----------
+     Flèches sous la galerie. Dans la galerie des maquettes, la carte affichée s'anime une fois (comme une vidéo)
+     quand elle est entièrement visible, avec un anneau de progression autour du bouton lecture/pause ;
+     pas de passage automatique, pause hors écran, « revoir » à la fin. */
   var phone = window.matchMedia('(max-width: 760px)');
+  var ICONES = '<svg class="ic i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>'
+    + '<svg class="ic i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>'
+    + '<svg class="ic i-revoir" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v4h4"/></svg>'
+    + '<svg class="anneau" viewBox="0 0 40 40"><circle class="piste" cx="20" cy="20" r="18"/><circle class="prog" cx="20" cy="20" r="18"/></svg>';
   document.querySelectorAll('.carrousel').forEach(function (car) {
     var cards = Array.prototype.slice.call(car.children);
-    var ctrl = car.nextElementSibling && car.nextElementSibling.classList.contains('car-ctrl') ? car.nextElementSibling : null;
-    var dots = ctrl && ctrl.querySelector('.car-dots'), btn = ctrl && ctrl.querySelector('.car-play');
-    if (dots) dots.innerHTML = cards.map(function () { return '<i></i>'; }).join('');
-    var pts = dots ? dots.children : [];
-    var cur = -1;
+    var nav = car.nextElementSibling && car.nextElementSibling.classList.contains('car-nav') ? car.nextElementSibling : null;
+    var prev = nav && nav.querySelector('.car-prev'), next = nav && nav.querySelector('.car-next');
+    var video = car.classList.contains('mq5-grid');
+    var cur = -1, vue = false, stop = false; // stop = l'utilisateur a mis en pause
     function centre(i) { var c = cards[i]; return c.offsetLeft + c.offsetWidth / 2 - car.clientWidth / 2; }
-    function go(i) { car.scrollTo({ left: centre(i), behavior: reduce ? 'auto' : 'smooth' }); }
+    function go(i) { i = Math.max(0, Math.min(cards.length - 1, i)); car.scrollTo({ left: centre(i), behavior: reduce ? 'auto' : 'smooth' }); }
+    if (prev) prev.addEventListener('click', function () { go(cur - 1); });
+    if (next) next.addEventListener('click', function () { go(cur + 1); });
+
+    function lancer(c) { c.classList.remove('lance', 'joue', 'fini'); void c.offsetWidth; c.classList.add('lance', 'joue'); }
+    function lecture() {
+      if (!video || cur < 0) return;
+      var c = cards[cur];
+      if (!vue) { c.classList.remove('joue'); return; }
+      if (stop || reduce || c.classList.contains('fini')) return;
+      if (!c.classList.contains('lance')) lancer(c); else c.classList.add('joue');
+    }
     function mark() {
       var mid = car.scrollLeft + car.clientWidth / 2, best = 0, d = 1e9;
       cards.forEach(function (c, i) { var k = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (k < d) { d = k; best = i; } });
-      if (best === cur) return; cur = best;
-      cards.forEach(function (c, i) { c.classList.toggle('actif', i === best); if (pts[i]) pts[i].classList.toggle('on', i === best); });
+      if (best === cur) return; cur = best; stop = false;
+      cards.forEach(function (c, i) { c.classList.toggle('actif', i === best); if (i !== best) c.classList.remove('lance', 'joue', 'fini'); });
+      if (prev) prev.disabled = best === 0;
+      if (next) next.disabled = best === cards.length - 1;
+      lecture();
     }
     car.addEventListener('scroll', function () { requestAnimationFrame(mark); }, { passive: true });
-    Array.prototype.forEach.call(pts, function (p, i) { p.addEventListener('click', function () { go(i); }); });
 
-    // Lecture automatique
-    if (ctrl && ctrl.classList.contains('auto')) {
-      var auto = !reduce;
-      function setAuto(on) {
-        auto = on; ctrl.classList.toggle('pause', !on);
-        if (btn) btn.setAttribute('aria-label', on ? 'Mettre en pause' : 'Lire');
-      }
-      setAuto(auto);
-      if (btn) btn.addEventListener('click', function () {
-        // relancer depuis la fin : on repart de la première
-        if (!auto && cur === cards.length - 1) go(0);
-        setAuto(!auto);
-      });
-      if (dots) dots.addEventListener('animationend', function (e) {
-        if (!auto || !e.target.classList.contains('on')) return;
-        go((cur + 1) % cards.length);
-      });
-      ['touchstart', 'pointerdown', 'wheel'].forEach(function (ev) {
-        car.addEventListener(ev, function () { if (auto) setAuto(false); }, { passive: true });
+    if (video) {
+      cards.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'mq5-play'; b.setAttribute('aria-label', 'Lecture ou pause de l’animation');
+        b.innerHTML = ICONES;
+        b.addEventListener('click', function (e) {
+          e.preventDefault(); e.stopPropagation();
+          if (!c.classList.contains('actif')) return;
+          if (c.classList.contains('fini') || !c.classList.contains('lance')) { stop = false; lancer(c); }
+          else if (c.classList.contains('joue')) { stop = true; c.classList.remove('joue'); }
+          else { stop = false; c.classList.add('joue'); }
+        });
+        c.querySelector('.mq5-media').appendChild(b);
+        c.addEventListener('animationend', function (e) {
+          if (e.animationName === 'mqRing') { c.classList.remove('joue'); c.classList.add('fini'); }
+        });
       });
       if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
-        es.forEach(function (e) { ctrl.classList.toggle('hors', !e.isIntersecting); });
-      }, { threshold: .5 }).observe(car);
+        es.forEach(function (e) { vue = e.intersectionRatio >= .95; lecture(); });
+      }, { threshold: [0, .95] }).observe(car);
     }
 
     // La formule mise en avant (Sur mesure) démarre au centre

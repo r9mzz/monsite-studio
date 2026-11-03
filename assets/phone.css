@@ -140,3 +140,41 @@ fieldset.q{padding-block:26px;gap:14px}
 /* Verre liquide */
 .tabbar.verre-liquide{background:rgba(11,11,13,.62)}
 .panel.verre-liquide{background:rgba(28,28,33,.72)}
+
+/* Accueil : maquettes et formules en carrousels (on glisse au lieu de descendre) */
+.sec5{padding-top:64px}
+.mq5{padding-top:36px}
+.mq5-head{margin-bottom:20px}
+.mq5-head h2,.steps5 h2,.price5 h2,.why-head h2{font-size:clamp(28px,8.2vw,34px);line-height:1.05}
+.steps5 .qa-head,.price5 .qa-head{margin-bottom:22px}
+.carrousel{position:relative;display:flex!important;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;margin-inline:calc(var(--gutter) * -1);padding:6px var(--gutter) 4px;scroll-padding-inline:var(--gutter);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.carrousel::-webkit-scrollbar{display:none}
+.carrousel > *{flex:none;scroll-snap-align:center;scroll-snap-stop:always}
+.carrousel > .rv{opacity:1;transform:none}
+.carrousel > *{transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.carrousel > *:not(.actif){opacity:.5;transform:scale(.94)}
+.mq5-grid.carrousel{padding-inline:10vw;scroll-padding-inline:10vw}
+.mq5-grid.carrousel > *{width:80vw}
+.mq5-card span{margin-top:10px;font-size:14px;text-align:center}
+.price5-list.carrousel{padding-inline:12vw;scroll-padding-inline:12vw}
+.price5-list.carrousel > *{width:76vw;padding:24px 22px}
+.price5-card b{margin:14px 0 10px;font-size:40px}
+.price5-card p{margin-bottom:18px}
+.pop5{display:inline-block;align-self:flex-start;margin-bottom:12px;padding:5px 10px;border-radius:99px;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:rgba(185,168,255,.12)}
+.car-dots{display:flex;justify-content:center;gap:6px;width:max-content;margin:16px auto 0;padding:7px 10px;border-radius:99px;background:#1E1D24}
+.car-dots i{width:6px;height:6px;border-radius:3px;background:#5A5762;transition:width .35s var(--ease),background .35s}
+.car-dots i.on{width:18px;background:var(--accent)}
+.car-dots.verre-liquide{background:rgba(30,29,36,.6)}
+.mq5-cap{flex-direction:column;align-items:stretch;gap:14px;margin-top:22px;font-size:15px;text-align:center}
+.mq5-cap .btn{width:100%}
+
+/* Moins long : listes resserrées */
+.why-lead{font-size:16px}
+.why-list{margin-top:24px}
+.why-list li{padding:16px 0}
+.why-list h3{margin:4px 0 6px;font-size:21px}
+.why-list p,.steps5-list p{font-size:15px}
+.calc{margin-top:28px}
+.steps5-list{gap:0}
+.steps5-list li{padding:16px 0}
+.steps5-list h3{margin:4px 0 6px;font-size:21px}

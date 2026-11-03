@@ -7,9 +7,39 @@
   var pl = document.getElementById('price5');
   if (pl && typeof FORMULES !== 'undefined') {
     pl.innerHTML = FORMULES.filter(function (f) { return f.prix != null; }).map(function (f) {
-      return '<article class="price5-card' + (f.populaire ? ' top' : '') + '"><h3>' + f.nom + '</h3><b>' + (f.des ? '<small>dès</small>' : '') + f.prix + ' €</b><p>' + f.gain + '</p><a class="ulink" href="devis.html">Recevoir ma maquette gratuite</a></article>';
+      return '<article class="price5-card' + (f.populaire ? ' top' : '') + '">' + (f.populaire ? '<span class="pop5">Le plus choisi</span>' : '') + '<h3>' + f.nom + '</h3><b>' + (f.des ? '<small>dès</small>' : '') + f.prix + ' €</b><p>' + f.gain + '</p><a class="ulink" href="devis.html">Recevoir ma maquette gratuite</a></article>';
     }).join('');
   }
+
+  /* ---------- Carrousels (téléphone) : points, carte active, Sur mesure au centre ---------- */
+  var phone = window.matchMedia('(max-width: 760px)');
+  document.querySelectorAll('.carrousel').forEach(function (car) {
+    var cards = Array.prototype.slice.call(car.children);
+    var dots = car.nextElementSibling && car.nextElementSibling.classList.contains('car-dots') ? car.nextElementSibling : null;
+    if (dots) dots.innerHTML = cards.map(function () { return '<i></i>'; }).join('');
+    var pts = dots ? dots.children : [];
+    var cur = -1;
+    function centre(i) { var c = cards[i]; return c.offsetLeft + c.offsetWidth / 2 - car.clientWidth / 2; }
+    function mark() {
+      var mid = car.scrollLeft + car.clientWidth / 2, best = 0, d = 1e9;
+      cards.forEach(function (c, i) { var k = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (k < d) { d = k; best = i; } });
+      if (best === cur) return; cur = best;
+      cards.forEach(function (c, i) { c.classList.toggle('actif', i === best); if (pts[i]) pts[i].classList.toggle('on', i === best); });
+    }
+    car.addEventListener('scroll', function () { requestAnimationFrame(mark); }, { passive: true });
+    Array.prototype.forEach.call(pts, function (p, i) {
+      p.addEventListener('click', function () { car.scrollTo({ left: centre(i), behavior: 'smooth' }); });
+    });
+    // La formule mise en avant (Sur mesure) démarre au centre
+    function start() {
+      var top = cards.findIndex(function (c) { return c.classList.contains('top'); });
+      if (phone.matches && top > 0) car.scrollLeft = centre(top);
+      cur = -1; mark();
+    }
+    start(); window.addEventListener('load', start);
+    // après un changement de taille (rotation, barre d'adresse), on garde la même carte au centre
+    window.addEventListener('resize', function () { if (cur >= 0) car.scrollLeft = centre(cur); });
+  });
 
   /* ---------- Mot qui change dans le titre ---------- */
   var rot = document.querySelector('.rot');

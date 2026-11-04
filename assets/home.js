@@ -18,7 +18,47 @@
     var cards = Array.prototype.slice.call(car.children);
     var nav = car.nextElementSibling && car.nextElementSibling.classList.contains('car-nav') ? car.nextElementSibling : null;
     var prev = nav && nav.querySelector('.car-prev'), next = nav && nav.querySelector('.car-next');
-    var cur = -1;
+    var cur = -1, vue = false, stop = false; // stop = mis en pause à la main
+
+    // Vidéos de défilement : la vidéo de la carte affichée se lance quand la galerie est entièrement visible,
+    // une seule fois (bouton « revoir » à la fin), pause hors écran, pas de passage automatique.
+    var vids = cards.filter(function (c) { return c.querySelector('video'); });
+    function anneau(c) {
+      var v = c.querySelector('video'), r = c.querySelector('.prog');
+      if (r && v.duration) r.style.strokeDashoffset = 113.1 * (1 - v.currentTime / v.duration);
+      if (!v.paused) requestAnimationFrame(function () { anneau(c); });
+    }
+    function lecture() {
+      vids.forEach(function (c) {
+        var v = c.querySelector('video'), ici = c === cards[cur];
+        if (!ici) { if (!v.paused || v.currentTime) { v.pause(); try { v.currentTime = 0; } catch (e) {} } c.classList.remove('joue', 'fini'); anneau(c); return; }
+        if (!vue || stop || reduce || !phone.matches || c.classList.contains('fini')) { v.pause(); return; }
+        if (v.paused) { v.preload = 'auto'; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      });
+    }
+    vids.forEach(function (c) {
+      var v = c.querySelector('video');
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'mq5-play'; b.setAttribute('aria-label', 'Lecture ou pause de la vidéo');
+      b.innerHTML = '<svg class="ic i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>'
+        + '<svg class="ic i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>'
+        + '<svg class="ic i-revoir" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v4h4"/></svg>'
+        + '<svg class="anneau" viewBox="0 0 40 40"><circle class="piste" cx="20" cy="20" r="18"/><circle class="prog" cx="20" cy="20" r="18"/></svg>';
+      b.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        if (c !== cards[cur]) return;
+        if (c.classList.contains('fini')) { c.classList.remove('fini'); v.currentTime = 0; stop = false; v.play(); }
+        else if (v.paused) { stop = false; v.play(); }
+        else { stop = true; v.pause(); }
+      });
+      c.querySelector('.mq5-media').appendChild(b);
+      v.addEventListener('play', function () { c.classList.add('joue'); c.classList.remove('fini'); anneau(c); });
+      v.addEventListener('pause', function () { c.classList.remove('joue'); });
+      v.addEventListener('ended', function () { c.classList.remove('joue'); c.classList.add('fini'); anneau(c); });
+    });
+    if (vids.length && 'IntersectionObserver' in window) new IntersectionObserver(function (es) {
+      es.forEach(function (e) { vue = e.intersectionRatio >= .95; lecture(); });
+    }, { threshold: [0, .95] }).observe(car);
     function centre(i) { var c = cards[i]; return c.offsetLeft + c.offsetWidth / 2 - car.clientWidth / 2; }
     function go(i) { i = Math.max(0, Math.min(cards.length - 1, i)); car.scrollTo({ left: centre(i), behavior: reduce ? 'auto' : 'smooth' }); }
     if (prev) prev.addEventListener('click', function () { go(cur - 1); });
@@ -28,6 +68,7 @@
       cards.forEach(function (c, i) { var k = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (k < d) { d = k; best = i; } });
       if (best === cur) return; cur = best;
       cards.forEach(function (c, i) { c.classList.toggle('actif', i === best); });
+      stop = false; lecture();
       if (prev) prev.disabled = best === 0;
       if (next) next.disabled = best === cards.length - 1;
     }

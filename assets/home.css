@@ -205,7 +205,9 @@ html{overflow-x:clip}
 .price5-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g3)}
 .price5-card{display:flex;flex-direction:column;padding:clamp(22px,2.4vw,32px);border:1px solid var(--line);border-radius:18px;background:#1B1A21}
 .price5-card.top{border-color:var(--accent)}
-.pop5,.car-nav{display:none}
+.pop5,.car-nav,.mq5-vid,.mq5-play{display:none}
+.mq5-media{position:relative}
+.mq5-media video{display:block;width:100%;height:auto}
 .price5-card h3{font-size:20px;line-height:1.15;letter-spacing:-.02em}
 .price5-card b{display:block;margin:18px 0 12px;font-family:var(--font-display);font-size:clamp(34px,3.4vw,50px);line-height:1;letter-spacing:-.035em;font-weight:700}
 .price5-card b small{font-size:14px;font-weight:500;letter-spacing:0;color:var(--muted);margin-right:6px}

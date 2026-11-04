@@ -503,3 +503,10 @@ h1,h2,h3,h4,.logo{font-weight:700;letter-spacing:-.035em}
 h1{line-height:1.02}
 .serif{font-style:normal;font-weight:700;letter-spacing:-.035em}
 .marquee-track em,.steps li::before,.q legend .n,.q .q-title .n{font-style:normal;font-weight:700;letter-spacing:-.035em}
+
+/* Socle design premium (2026-11-04) : titres en graisse 500, tailles raisonnables, pas de petites étiquettes en majuscules */
+h1,h2{font-weight:500;letter-spacing:-.025em;line-height:1.08}
+h3,h4{font-weight:600;letter-spacing:-.015em}
+.serif{font-weight:inherit;letter-spacing:inherit}
+.mono{font-family:inherit;font-size:14px;letter-spacing:0;text-transform:none}
+.page-hero h1{font-size:clamp(40px,4.2vw,56px)}

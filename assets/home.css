@@ -10,7 +10,7 @@
 /* Héro */
 .h5{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(28px,4vw,56px);padding-top:clamp(150px,20vh,230px);padding-bottom:clamp(40px,6vw,80px)}
 .h5>*:not(.h5-wave){position:relative;z-index:1}
-.h5-wave{position:absolute;z-index:0;top:0;height:112%!important;max-width:none!important;left:50%;width:100vw;transform:translateX(-50%);pointer-events:none;opacity:0;transition:opacity 1.6s ease}
+.h5-wave{position:absolute;z-index:0;top:0;height:112%!important;max-width:none!important;left:50%;width:calc(var(--vw,1vw) * 100);transform:translateX(-50%);pointer-events:none;opacity:0;transition:opacity 1.6s ease}
 .h5-wave.on{opacity:1}
 .h5::before{content:"";position:absolute;z-index:0;top:-10%;left:50%;width:min(80vw,1100px);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(124,92,255,.2),rgba(124,92,255,.06) 50%,rgba(124,92,255,0));pointer-events:none;animation:glow 22s ease-in-out infinite alternate;will-change:transform}
 @keyframes glow{from{transform:translate(-10%,-6%)}to{transform:translate(20%,8%)}}
@@ -231,9 +231,9 @@ html{overflow-x:clip}
 
 /* Ordinateur : galerie de maquettes en carrousel, comme sur téléphone (modèle Apple) */
 @media (min-width:761px){
-  .mq5-grid.carrousel{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin-inline:calc(50% - 50vw);padding:8px calc(50vw - min(32vw,460px)) 6px;scroll-padding-inline:calc(50vw - min(32vw,460px))}
+  .mq5-grid.carrousel{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin-inline:calc(50% - var(--vw,1vw) * 50);padding:8px calc(var(--vw,1vw) * 50 - min(var(--vw,1vw) * 32,460px)) 6px;scroll-padding-inline:calc(var(--vw,1vw) * 50 - min(var(--vw,1vw) * 32,460px))}
   .mq5-grid.carrousel::-webkit-scrollbar{display:none}
-  .mq5-grid.carrousel > *{flex:none;width:min(64vw,920px);scroll-snap-align:center;opacity:1;transform:none}
+  .mq5-grid.carrousel > *{flex:none;width:min(var(--vw,1vw) * 64,920px);scroll-snap-align:center;opacity:1;transform:none}
   .mq5-grid .mq5-media{border-radius:22px}
   .mq5-grid .mq5-card:hover .mq5-media{transform:none}
   .mq5-card span{margin-top:18px;font-size:17px;text-align:center}
@@ -252,7 +252,7 @@ html{overflow-x:clip}
 }
 
 /* Le haut de page prend tout l'écran : la suite arrive au défilement */
-.h5{min-height:100vh;min-height:100svh;box-sizing:border-box;padding-bottom:clamp(120px,16vh,170px)}
+.h5{min-height:100vh;min-height:calc(var(--vh,1svh) * 100);box-sizing:border-box;padding-bottom:clamp(120px,16vh,170px)}
 .h5-scroll{position:absolute!important;left:50%;bottom:clamp(22px,4vh,40px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .h5-scroll i{position:relative;width:22px;height:34px;border:1.5px solid currentColor;border-radius:12px;opacity:.8}
 .h5-scroll i::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--fg);animation:h5s 1.8s ease-in-out infinite}
@@ -262,8 +262,8 @@ html{overflow-x:clip}
 
 /* Ordinateur : la galerie démarre au bord du texte (plus de vide à gauche) */
 @media (min-width:761px){
-  .mq5-grid.carrousel{padding-inline:var(--gutter) calc(100vw - var(--gutter) - min(60vw,1400px));scroll-padding-inline:var(--gutter)}
-  .mq5-grid.carrousel > *{scroll-snap-align:start;width:min(60vw,1400px)}
+  .mq5-grid.carrousel{padding-inline:var(--gutter) calc(var(--vw,1vw) * 100 - var(--gutter) - min(var(--vw,1vw) * 64,920px));scroll-padding-inline:var(--gutter)}
+  .mq5-grid.carrousel > *{scroll-snap-align:start;width:min(var(--vw,1vw) * 64,920px)}
   .mq5-card span{text-align:left}
   .mq5 .car-nav{justify-content:flex-start}
 }

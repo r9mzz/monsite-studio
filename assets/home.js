@@ -7,7 +7,7 @@
   var pl = document.getElementById('price5');
   if (pl && typeof FORMULES !== 'undefined') {
     pl.innerHTML = FORMULES.filter(function (f) { return f.prix != null; }).map(function (f) {
-      return '<article class="price5-card' + (f.populaire ? ' top' : '') + '">' + (f.populaire ? '<span class="pop5">Le plus choisi</span>' : '') + '<h3>' + f.nom + '</h3><b>' + (f.des ? '<small>dès</small>' : '') + f.prix + ' €</b><p>' + f.gain + '</p><a class="ulink" href="devis.html">Recevoir ma maquette gratuite</a></article>';
+      return '<article class="price5-card' + (f.populaire ? ' top' : '') + '">' + (f.populaire ? '<span class="pop5">Le plus choisi</span>' : '') + '<h3>' + f.nom + '</h3><b>' + (f.des ? '<small>dès</small>' : '') + (f.ancien ? '<del aria-label="au lieu de ' + f.ancien + ' €">' + f.ancien + ' €</del> ' : '') + f.prix + ' €</b><p>' + f.gain + '</p><a class="ulink" href="devis.html">Recevoir ma maquette gratuite</a></article>';
     }).join('');
   }
 
@@ -217,7 +217,7 @@
 (function () {
   var nr = document.getElementById('c-nr'), pr = document.getElementById('c-pr');
   if (!nr || !pr) return;
-  var SITE = 350; // prix du site sur mesure, pour dire en combien de temps il est rentabilisé
+  var SITE = 300; // prix du site sur mesure, pour dire en combien de temps il est rentabilisé
   var tot = document.getElementById('c-tot'), txt = document.getElementById('c-txt');
   var fmt = function (n) { return Math.round(n).toLocaleString('fr-FR').replace(/\s/g, ' ') + ' €'; };
   var shown = { v: 0 }, gsap = window.gsap;

@@ -1,10 +1,10 @@
 /* Mon Site Studio — tarifs et contact, partagés par devis.html et mobile.html */
 /* ===== TARIFS : à modifier ici (une seule fois pour tout le site) (prix en euros ; null = « sur devis ») ===== */
-// des: true = « à partir de » ; gain = ce que le client y gagne (affiché en premier)
+// des: true = « à partir de » ; ancien = ancien prix, affiché barré à côté du nouveau ; gain = ce que le client y gagne (affiché en premier)
 var FORMULES = [
-  { id: 'renovation', nom: 'Rénovation', gain: 'Vos visiteurs restent au lieu de repartir.', desc: 'Votre site actuel remis au goût du jour et rapide sur téléphone. Le prix dépend de ce qu’il faut refaire.', prix: 200, des: true },
-  { id: 'sur-mesure', nom: 'Site sur mesure', gain: 'Les clients vous trouvent, vous font confiance et vous contactent.', desc: 'Un site créé pour votre commerce, sur téléphone et ordinateur. Modifications incluses jusqu’à ce qu’il vous plaise.', prix: 350, populaire: true },
-  { id: 'premium', nom: 'Site premium', gain: 'Vous sortez du lot : on se souvient de vous et on vous choisit.', desc: 'Le site sur mesure, avec des animations et une mise en scène haut de gamme.', prix: 500, des: true },
+  { id: 'renovation', nom: 'Rénovation', gain: 'Vos visiteurs restent au lieu de repartir.', desc: 'Votre site actuel remis au goût du jour et rapide sur téléphone. Le prix dépend de ce qu’il faut refaire.', prix: 150, ancien: 200, des: true },
+  { id: 'sur-mesure', nom: 'Site sur mesure', gain: 'Les clients vous trouvent, vous font confiance et vous contactent.', desc: 'Un site créé pour votre commerce, sur téléphone et ordinateur. Modifications incluses jusqu’à ce qu’il vous plaise.', prix: 300, ancien: 350, populaire: true },
+  { id: 'premium', nom: 'Site premium', gain: 'Vous sortez du lot : on se souvient de vous et on vous choisit.', desc: 'Le site sur mesure, avec des animations et une mise en scène haut de gamme.', prix: 400, ancien: 500, des: true },
   { id: '3d', nom: 'Site 3D et motion design', gain: 'Une vitrine unique, qui fait parler de vous.', desc: '3D, vidéo, animations avancées : chaque projet est chiffré avec vous.', prix: null }
 ];
 var OPTIONS = [

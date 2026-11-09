@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=22">
+<link rel="stylesheet" href="assets/style.css?v=23">
 <link rel="stylesheet" href="assets/phone.css?v=18" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
@@ -78,7 +78,7 @@
 
       <aside class="panel" aria-live="polite">
         <span class="mono" id="price-k">Votre estimation</span>
-        <div class="price" id="price">350 €</div>
+        <div class="price" id="price">300 €</div>
         <p class="gain-l" id="gain"></p>
         <p class="roi" id="roi"></p>
         <ul class="lines" id="lines"></ul>
@@ -115,12 +115,12 @@
   </div>
 </footer>
 
-<script src="assets/tarifs.js?v=21"></script>
+<script src="assets/tarifs.js?v=22"></script>
 <script>
 (function () {
   var fmt = function (n) { return n.toLocaleString('fr-FR').replace(/ | /g, ' '); };
   var money = function (p) { return p == null ? 'Sur devis' : fmt(p) + ' €'; };
-  var from = function (f) { return f.prix == null ? 'Sur devis' : (f.des ? 'Dès ' : '') + fmt(f.prix) + ' €'; };
+  var from = function (f) { return f.prix == null ? 'Sur devis' : (f.des ? 'Dès ' : '') + (f.ancien ? '<del aria-label="au lieu de ' + fmt(f.ancien) + ' €">' + fmt(f.ancien) + ' €</del> ' : '') + fmt(f.prix) + ' €'; };
   var plus = function (p) { return p == null ? 'Sur devis' : '+ ' + fmt(p) + ' €'; };
 
   document.getElementById('formule').innerHTML = FORMULES.map(function (f) {

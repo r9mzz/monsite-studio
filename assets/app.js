@@ -14,7 +14,7 @@
     var items = [
       { href: './', page: 'index.html', label: 'Accueil', icon: I.home },
       { href: 'realisations.html', page: 'realisations.html', label: 'Créations', icon: I.grid },
-      { href: 'devis.html', page: 'devis.html', label: 'Devis', icon: I.doc, cta: true },
+      { href: 'devis.html', page: 'devis.html', label: 'Prix', icon: I.doc, cta: true },
       { href: 'https://ig.me/m/monsite.studio', label: 'Contact', icon: I.chat, ext: true }
     ];
     var nav = document.createElement('nav');

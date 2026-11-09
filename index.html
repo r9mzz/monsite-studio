@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/style.css?v=23">
-<link rel="stylesheet" href="assets/home.css?v=26">
+<link rel="stylesheet" href="assets/home.css?v=27">
 <link rel="stylesheet" href="assets/phone.css?v=24" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
@@ -41,22 +41,23 @@
 <main>
   <section class="h5 wrap" id="haut">
     <canvas class="h5-wave" aria-hidden="true"></canvas>
-    <h1 class="reveal-lines" aria-label="Des sites qui donnent envie de cliquer.">
-      <span class="line"><span>Des sites qui donnent</span></span>
-      <span class="line"><span><span class="serif accent">envie</span> de <span class="rot" aria-hidden="true"><span class="rot-w on">cliquer.</span><span class="rot-w">commander.</span><span class="rot-w">réserver.</span><span class="rot-w">revenir.</span></span></span></span>
+    <h1 class="reveal-lines" aria-label="Création de site internet pour traiteurs, restaurants, artisans et pros du mariage.">
+      <span class="line"><span>Création de site internet</span></span>
+      <span class="line"><span><span class="serif accent">pour</span> <span class="rot" aria-hidden="true"><span class="rot-w on">traiteurs.</span><span class="rot-w">restaurants.</span><span class="rot-w">artisans.</span><span class="rot-w">negafas.</span><span class="rot-w">garages.</span></span></span></span>
     </h1>
     <div class="h5-foot reveal-fade">
-      <p class="h5-lead">Un site beau, rapide et bien placé sur Google, pour que les clients vous choisissent.</p>
+      <p class="h5-lead">Vos clients vous cherchent sur leur téléphone. On crée le site qui leur donne envie de réserver chez vous, et vous voyez la maquette avant de payer.</p>
       <div class="h5-cta">
         <a class="btn btn-light magnetic" href="devis.html">Recevoir ma maquette gratuite <span class="arrow">→</span></a>
         <a class="ulink" href="realisations.html">Voir les créations</a>
       </div>
+      <p class="h5-proof"><span class="dot" aria-hidden="true"></span>Dès 150 € · Sweet Délices, traiteur, en ligne depuis le 28 octobre : <a class="ulink" href="https://sweetdelices-traiteur.fr" target="_blank" rel="noopener">sweetdelices-traiteur.fr</a></p>
     </div>
   </section>
 
   <!-- Nos meilleures maquettes -->
   <section class="mq5 wrap" aria-labelledby="t-mq">
-    <div class="mq5-head"><h2 id="t-mq">Des sites en ligne, et une maquette pour chaque métier.</h2></div>
+    <div class="mq5-head"><h2 id="t-mq">Exemples de sites internet pour traiteurs, restaurants, garages et negafas.</h2></div>
     <div class="mq5-grid carrousel" aria-label="Maquettes, glissez pour voir la suite">
       <a class="mq5-card mq5-vid" href="realisations.html"><div class="mq5-media"><video muted playsinline preload="none" poster="img/vid-sd.jpg" width="960" height="588" aria-label="Défilement du site de Sweet Délices"><source src="img/vid-sd.mp4" type="video/mp4"><source src="img/vid-sd.webm" type="video/webm"></video></div><span><b>Sweet Délices</b>, traiteur : un vrai site client, en ligne.</span></a>
       <a class="mq5-card mq5-vid" href="realisations.html"><div class="mq5-media"><video muted playsinline preload="none" poster="img/vid-cu.jpg" width="960" height="588" aria-label="Défilement d’un site de restaurant"><source src="img/vid-cu.mp4" type="video/mp4"><source src="img/vid-cu.webm" type="video/webm"></video></div><span>Pour un <b>restaurant halal</b> : la carte, le brunch, les infos.</span></a>
@@ -71,6 +72,13 @@
     </div>
     <div class="car-nav"><button class="car-prev" type="button" aria-label="Précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button><button class="car-next" type="button" aria-label="Suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button></div>
     <p class="mq5-cap rv"><span>Notre première cliente, Sweet Délices, a son site en ligne depuis le 28 octobre : <a class="ulink" href="https://sweetdelices-traiteur.fr" target="_blank" rel="noopener">sweetdelices-traiteur.fr</a>. Votre maquette est gratuite et sans engagement.</span><a class="btn btn-light magnetic" href="devis.html">Recevoir ma maquette gratuite <span class="arrow">→</span></a></p>
+  </section>
+
+  <!-- Tarifs : remplis depuis assets/tarifs.js -->
+  <section class="sec5 wrap price5" aria-labelledby="t-price">
+    <div class="qa-head"><h2 id="t-price">Prix d’un site internet pour votre commerce.</h2></div>
+    <div class="price5-list carrousel" id="price5" aria-label="Formules, glissez pour comparer"></div>
+    <div class="car-nav"><button class="car-prev" type="button" aria-label="Précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button><button class="car-next" type="button" aria-label="Suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button></div>
   </section>
 
   <!-- Ce que le site rapporte -->
@@ -108,16 +116,9 @@
     </ol>
   </section>
 
-  <!-- Tarifs : remplis depuis assets/tarifs.js -->
-  <section class="sec5 wrap price5" aria-labelledby="t-price">
-    <div class="qa-head"><h2 id="t-price">Nos prix, affichés.</h2></div>
-    <div class="price5-list carrousel" id="price5" aria-label="Formules, glissez pour comparer"></div>
-    <div class="car-nav"><button class="car-prev" type="button" aria-label="Précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button><button class="car-next" type="button" aria-label="Suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button></div>
-  </section>
-
   <!-- Questions : courtes -->
   <section class="sec5 wrap qa" aria-labelledby="t-faq">
-    <div class="qa-head"><h2 id="t-faq">Vos questions.</h2></div>
+    <div class="qa-head"><h2 id="t-faq">Vos questions sur la création de votre site.</h2></div>
     <div class="qa-list">
       <details class="rv"><summary>Les modifications sont-elles incluses ?<i></i></summary><p>Oui, jusqu’à ce que la version finale vous convienne. Vous ne prenez aucun risque.</p></details>
       <details class="rv"><summary>Je n’ai ni logo ni textes.<i></i></summary><p>Aucun problème : nous pouvons créer votre logo et rédiger vos textes.</p></details>
@@ -138,7 +139,7 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div><span class="mono">Pages</span><a href="./">Accueil</a><a href="realisations.html">Créations</a><a href="devis.html">Devis gratuit</a></div>
+      <div><span class="mono">Pages</span><a href="./">Accueil</a><a href="realisations.html">Créations</a><a href="devis.html">Estimer mon prix</a></div>
       <div><span class="mono">Contact</span><a href="https://www.instagram.com/monsite.studio/" target="_blank" rel="noopener">Instagram</a><span style="color:var(--muted)">monsite.studio</span></div>
       <div><span class="mono">© <span data-year>2026</span> Mon Site Studio</span></div>
     </div>
@@ -150,7 +151,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script src="assets/tarifs.js?v=22"></script>
-<script src="assets/app.js?v=16"></script>
+<script src="assets/app.js?v=17"></script>
 <script type="module">import { verre } from "./assets/verre-liquide.js?v=1"; verre(".nav", { si: "scrolled", flou: 6 }); verre(".tabbar"); verre(".panel"); verre(".btn-line"); verre(".car-nav button");</script>
 <script src="assets/home.js?v=24"></script>
 </body>

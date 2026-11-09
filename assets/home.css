@@ -250,3 +250,12 @@ html{overflow-x:clip}
   .mq5-play .piste{stroke:rgba(255,255,255,.25)}
   .mq5-play .prog{stroke:var(--accent);stroke-dasharray:113.1;stroke-dashoffset:113.1}
 }
+
+/* Le haut de page prend tout l'écran : la suite arrive au défilement */
+.h5{min-height:100vh;min-height:100svh;box-sizing:border-box;padding-bottom:clamp(120px,16vh,170px)}
+.h5-scroll{position:absolute!important;left:50%;bottom:clamp(22px,4vh,40px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.h5-scroll i{position:relative;width:22px;height:34px;border:1.5px solid currentColor;border-radius:12px;opacity:.8}
+.h5-scroll i::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--fg);animation:h5s 1.8s ease-in-out infinite}
+@keyframes h5s{0%{opacity:0;transform:translateY(0)}30%{opacity:1}80%,100%{opacity:0;transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){.h5-scroll i::after{animation:none}}
+@media (max-width:760px){.h5{min-height:0;padding-bottom:36px}.h5-scroll{display:none!important}}

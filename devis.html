@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="assets/style.css?v=26z">
 <link rel="stylesheet" href="assets/phone.css?v=18" media="(max-width: 760px)">
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
-<script>/* Grands écrans : tout le site grandit dans les mêmes proportions que sur un écran de 1440 px */(function(){var d=document.documentElement;function z(){var w=window.innerWidth,k=w>1440?w/1440:1;d.style.zoom=k>1?k.toFixed(4):"";d.style.setProperty("--vw",(w/k/100)+"px");d.style.setProperty("--vh",(window.innerHeight/k/100)+"px");}z();addEventListener("resize",z);})();</script>
+<script>/* Grands écrans : tout le site grandit dans les mêmes proportions que sur un écran de 1440 px */(function(){var d=document.documentElement;function z(){var w=window.innerWidth,k=w>1440?Math.min(1+(w/1440-1)*.35,1.2):1;d.style.zoom=k>1?k.toFixed(4):"";d.style.setProperty("--vw",(w/k/100)+"px");d.style.setProperty("--vh",(window.innerHeight/k/100)+"px");}z();addEventListener("resize",z);})();</script>
 </head>
 <body>
 

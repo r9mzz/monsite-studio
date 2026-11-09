@@ -32,7 +32,7 @@
       vids.forEach(function (c) {
         var v = c.querySelector('video'), ici = c === cards[cur];
         if (!ici) { if (!v.paused || v.currentTime) { v.pause(); try { v.currentTime = 0; } catch (e) {} } c.classList.remove('joue', 'fini'); anneau(c); return; }
-        if (!vue || stop || reduce || !phone.matches || c.classList.contains('fini')) { v.pause(); return; }
+        if (!vue || stop || reduce || c.classList.contains('fini')) { v.pause(); return; }
         if (v.paused) { v.preload = 'auto'; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
       });
     }

@@ -59,13 +59,15 @@
     if (vids.length && 'IntersectionObserver' in window) new IntersectionObserver(function (es) {
       es.forEach(function (e) { vue = e.intersectionRatio >= .95; lecture(); });
     }, { threshold: [0, .95] }).observe(car);
-    function centre(i) { var c = cards[i]; return c.offsetLeft + c.offsetWidth / 2 - car.clientWidth / 2; }
+    // carte calée à gauche (ordinateur, galerie) ou au centre (téléphone, tarifs)
+    function gauche() { return getComputedStyle(cards[0]).scrollSnapAlign.indexOf('start') === 0; }
+    function centre(i) { var c = cards[i]; return gauche() ? c.offsetLeft - (parseFloat(getComputedStyle(car).scrollPaddingLeft) || 0) : c.offsetLeft + c.offsetWidth / 2 - car.clientWidth / 2; }
     function go(i) { i = Math.max(0, Math.min(cards.length - 1, i)); car.scrollTo({ left: centre(i), behavior: reduce ? 'auto' : 'smooth' }); }
     if (prev) prev.addEventListener('click', function () { go(cur - 1); });
     if (next) next.addEventListener('click', function () { go(cur + 1); });
     function mark() {
-      var mid = car.scrollLeft + car.clientWidth / 2, best = 0, d = 1e9;
-      cards.forEach(function (c, i) { var k = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (k < d) { d = k; best = i; } });
+      var best = 0, d = 1e9;
+      cards.forEach(function (c, i) { var k = Math.abs(centre(i) - car.scrollLeft); if (k < d) { d = k; best = i; } });
       if (best === cur) return; cur = best;
       cards.forEach(function (c, i) { c.classList.toggle('actif', i === best); });
       stop = false; lecture();

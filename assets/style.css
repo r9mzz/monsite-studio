@@ -513,3 +513,7 @@ h3,h4{font-weight:600;letter-spacing:-.015em}
 
 /* Ancien prix barré (baisse de prix du 2026-11-09) */
 del{color:var(--muted);font-weight:400;text-decoration:line-through;text-decoration-thickness:1.5px;font-size:.62em;letter-spacing:0;margin-right:.15em;vertical-align:.12em}
+
+/* Grands écrans : le site prend toute la largeur (plus de colonne de 1480 px au milieu) */
+:root{--gutter:clamp(16px,4.5vw,120px)}
+.wrap,.show-stage{max-width:none}

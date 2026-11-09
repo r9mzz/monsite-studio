@@ -259,3 +259,22 @@ html{overflow-x:clip}
 @keyframes h5s{0%{opacity:0;transform:translateY(0)}30%{opacity:1}80%,100%{opacity:0;transform:translateY(10px)}}
 @media (prefers-reduced-motion:reduce){.h5-scroll i::after{animation:none}}
 @media (max-width:760px){.h5{min-height:0;padding-bottom:36px}.h5-scroll{display:none!important}}
+
+/* Ordinateur (2026-11-09) : plus de trous. Les titres ont été réduits (Socle), on resserre donc tout ce qui était calé sur les titres géants. */
+@media (min-width:761px){
+  /* Haut de page : il ne prend plus tout l'écran, la galerie apparaît dès le premier écran */
+  .h5{min-height:0;justify-content:flex-start;padding-top:clamp(150px,17vh,190px);padding-bottom:clamp(40px,5vw,64px)}
+  .h5-scroll{display:none!important}
+  /* Galerie : la première carte s'aligne sur le texte (comme Apple), la suivante dépasse à droite */
+  .mq5-grid.carrousel{--bord:max(var(--gutter),calc((100vw - 1480px) / 2 + var(--gutter)));padding-inline:var(--bord) calc(100vw - var(--bord) - min(64vw,920px));scroll-padding-inline:var(--bord)}
+  .mq5-grid.carrousel > *{scroll-snap-align:start}
+  .mq5-card span{text-align:left}
+  .mq5 .car-nav{justify-content:flex-start}
+  /* Sections : moins d'espace vide entre elles, titres sans colonne vide à gauche */
+  .sec5{padding-top:clamp(64px,7vw,112px)}
+  .why-head{grid-template-columns:minmax(0,1fr);max-width:760px}
+  .why-head h2,.why-lead{grid-column:1/-1}
+  .why-list{margin-top:clamp(32px,4vw,56px)}
+  .calc{margin-top:clamp(40px,5vw,72px)}
+  .final5{padding-block:clamp(80px,9vw,140px) clamp(56px,6vw,96px)}
+}

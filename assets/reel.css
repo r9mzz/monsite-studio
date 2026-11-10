@@ -101,3 +101,23 @@
   .rc h3,.tier-mesure .rc h3{font-size:clamp(32px,2.8vw,48px);line-height:1.05}
   .final h2{font-size:clamp(40px,4.2vw,64px)}
 }
+
+/* 2026-11-10 : moins de vide en haut, le premier site arrive tout de suite */
+@media (min-width:761px){
+  .page-hero{padding-top:clamp(96px,11vh,120px);padding-bottom:0;display:flex;align-items:baseline;gap:32px;flex-wrap:wrap}
+  .page-hero .label{display:none}
+  .page-hero h1{font-size:clamp(34px,3.2vw,46px)!important}
+  .page-hero h1 .line{display:inline-block;margin-right:.25em}
+  .page-hero .sub{margin:0}
+  .page-hero .sub p{font-size:16px;max-width:52ch}
+  .tier{padding-top:clamp(28px,3vw,44px)}
+  .tier-head{align-items:end}
+  .tier-head .label{margin-bottom:8px}
+  .tier h2{font-size:clamp(26px,2.4vw,34px)!important}
+  .tier-amount b{font-size:clamp(26px,2.4vw,36px)}
+  .tier-price p:not(.tier-amount){font-size:14px;margin-top:4px}
+  .rc{align-items:start}
+  .reel-on .rc{padding-top:clamp(84px,10vh,104px)}
+  .tier:first-of-type .reel:not(.reel-on) .rc:first-child,.reel .rc:first-child{padding-top:clamp(24px,3vh,40px)}
+}
+@media (max-width:760px){.page-hero{padding-top:96px}.tier{padding-top:32px}}

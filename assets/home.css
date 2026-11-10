@@ -267,3 +267,33 @@ html{overflow-x:clip}
   .mq5-card span{text-align:left}
   .mq5 .car-nav{justify-content:flex-start}
 }
+
+/* 2026-11-10 : idées de la proposition, dans la DA sombre */
+/* Un seul grand téléphone dans le haut de page (ordinateur) */
+.h5-tel{display:none}
+@media (min-width:1000px){
+  .h5-tel{display:block;position:absolute!important;z-index:1;right:var(--gutter);top:clamp(96px,12vh,124px);width:clamp(200px,16vw,236px);margin:0}
+  .h5-tel-in{padding:10px;border-radius:44px;background:#0d0c11;border:1px solid var(--line);box-shadow:0 40px 90px -30px rgba(124,92,255,.35)}
+  .h5-tel img{border-radius:34px;width:100%;height:auto}
+  .h5-tel figcaption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .h5 h1,.h5-foot .h5-lead{max-width:calc(100% - clamp(200px,16vw,236px) - 64px)}
+}
+/* Bande de 4 preuves */
+.preuves5{border-block:1px solid var(--line);background:var(--bg-2)}
+.preuves5 ul{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-block:40px;margin-block:0}
+.preuves5 li{padding-left:20px;border-left:1px solid var(--line)}
+.preuves5 b{display:block;font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--fg)}
+.preuves5 span{font-size:15px;color:var(--muted)}
+@media (max-width:900px){.preuves5 ul{grid-template-columns:1fr 1fr;row-gap:28px}}
+@media (max-width:760px){.preuves5 ul{padding-block:32px}.preuves5 b{font-size:17px}.preuves5 span{font-size:14px}}
+/* Prix : la carte du milieu ressort et est plus haute */
+@media (min-width:761px){
+  .price5-list{align-items:center}
+  .price5-card.top{padding-block:clamp(34px,3.4vw,48px);background:#24222C;box-shadow:0 30px 70px -40px rgba(124,92,255,.5)}
+}
+.pop5{display:inline-block!important;align-self:flex-start;margin-bottom:12px;padding:4px 12px;border-radius:999px;background:rgba(124,92,255,.18);color:#CFC4FF;font-size:12px;font-weight:600}
+/* Carte de dernier espoir */
+.espoir5{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;margin-top:clamp(80px,9vw,128px);padding:clamp(32px,4.4vw,64px);border:1px solid var(--line);border-radius:28px;background:var(--bg-2)}
+.espoir5 h2{font-size:clamp(26px,2.8vw,38px);line-height:1.1;letter-spacing:-.025em;max-width:20em}
+.espoir5 p{margin-top:12px;color:var(--muted)}
+@media (max-width:760px){.espoir5{flex-direction:column;align-items:stretch;padding:28px 22px}.espoir5 .btn{width:100%}}

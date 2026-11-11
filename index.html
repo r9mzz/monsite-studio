@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/style.css?v=26z">
-<link rel="stylesheet" href="assets/home.css?v=38">
+<link rel="stylesheet" href="assets/home.css?v=39">
 <link rel="stylesheet" href="assets/phone.css?v=24" media="(max-width: 760px)">
 <script>/* Grands écrans : tout le site grandit dans les mêmes proportions que sur un écran de 1440 px */(function(){var d=document.documentElement;function z(){var w=window.innerWidth,k=w>1440?Math.min(1+(w/1440-1)*.35,1.2):1;d.style.zoom=k>1?k.toFixed(4):"";d.style.setProperty("--vw",(w/k/100)+"px");d.style.setProperty("--vh",(window.innerHeight/k/100)+"px");}z();addEventListener("resize",z);})();</script>
 <script>try{if(sessionStorage.getItem("ms-curtain")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("arriving")}catch(e){}</script>
@@ -34,6 +34,7 @@
     <a class="logo" href="./" aria-label="Mon Site Studio, accueil">monsite<i>.</i>studio</a>
     <nav class="nav-links" aria-label="Menu principal">
       <a class="hide-m" href="realisations.html">Créations</a>
+      <a class="hide-m" href="#contact">Une question ?</a>
       <a class="btn btn-light btn-sm" href="devis.html">Maquette gratuite</a>
     </nav>
   </div>
@@ -91,6 +92,17 @@
     <p class="mq5-cap rv"><span>Notre première cliente, Sweet Délices, a son site en ligne depuis le 28 octobre : <a class="ulink" href="https://sweetdelices-traiteur.fr" target="_blank" rel="noopener">sweetdelices-traiteur.fr</a>. Votre maquette est gratuite et sans engagement.</span><a class="btn btn-light magnetic" href="devis.html">Recevoir ma maquette gratuite <span class="arrow">→</span></a></p>
   </section>
 
+  <!-- Qui on est + premier contact : on parle du client -->
+  <section class="sec5 wrap qui5" aria-labelledby="t-qui">
+    <h2 id="t-qui">Vous n’avez rien à faire.</h2>
+    <ul class="qui5-list">
+      <li><b>On écrit vos textes.</b><span>Vous n’avez pas à chercher les mots.</span></li>
+      <li><b>On reprend vos photos.</b><span>Celles de votre Instagram suffisent.</span></li>
+      <li><b>On met le site en ligne.</b><span>Vous recevez le lien, c’est tout.</span></li>
+    </ul>
+    <p class="qui5-cta"><a class="btn btn-light magnetic" href="devis.html">Recevoir ma maquette gratuite <span class="arrow">→</span></a><a class="ulink" href="https://www.instagram.com/monsite.studio/" target="_blank" rel="noopener">Ou écrivez-nous sur Instagram</a></p>
+  </section>
+
   <!-- Tarifs : remplis depuis assets/tarifs.js -->
   <section class="sec5 wrap price5" aria-labelledby="t-price">
     <div class="qa-head"><h2 id="t-price">Prix d’un site internet pour votre commerce.</h2></div>
@@ -122,27 +134,31 @@
   <section class="sec5 wrap qa" aria-labelledby="t-faq">
     <div class="qa-head"><h2 id="t-faq">Vos questions sur la création de votre site.</h2></div>
     <div class="qa-list">
+      <details class="rv"><summary>Faut-il payer avant de voir le site ?<i></i></summary><p>Non. Vous recevez la maquette gratuitement et vous décidez après l’avoir vue.</p></details>
+      <details class="rv"><summary>Je n’ai pas le temps de m’en occuper.<i></i></summary><p>Vous n’avez rien à faire : envoyez-nous votre Instagram, on prépare tout, vous dites seulement ce qu’il faut changer.</p></details>
       <details class="rv"><summary>Les modifications sont-elles incluses ?<i></i></summary><p>Oui, jusqu’à ce que la version finale vous convienne. Vous ne prenez aucun risque.</p></details>
       <details class="rv"><summary>Je n’ai ni logo ni textes.<i></i></summary><p>Aucun problème : nous pouvons créer votre logo et rédiger vos textes.</p></details>
       <details class="rv"><summary>Combien coûte un site ?<i></i></summary><p>Rénovation dès 150 € (au lieu de <del>200 €</del>), site sur mesure 300 € (au lieu de <del>350 €</del>), site premium dès 400 € (au lieu de <del>500 €</del>). <a class="ulink" href="devis.html">Faites votre estimation gratuite</a> en une minute : vous verrez combien de clients suffisent à le rembourser.</p></details>
     </div>
   </section>
 
-  <!-- Dernière chance avant le pied de page -->
-  <section class="wrap">
-    <div class="espoir5">
-      <div><h2>Pas encore sûr ? Envoyez-nous votre Instagram.</h2><p>On vous prépare votre maquette gratuitement. Vous décidez après l’avoir vue.</p></div>
-      <a class="btn btn-light magnetic" href="https://www.instagram.com/monsite.studio/" target="_blank" rel="noopener">Écrire sur Instagram <span class="arrow">→</span></a>
-    </div>
-  </section>
-
-  <section class="final5 wrap">
-    <h2>Parlons de votre site.</h2>
-    <div class="final5-row">
+  <!-- Contact : résumé + pastilles -->
+  <section class="wrap ct5" id="contact" aria-labelledby="t-ct">
+    <div class="ct5-txt">
+      <h2 id="t-ct">Une question ? Parlons de votre site.</h2>
+      <ul class="ct5-sum" aria-label="En résumé">
+        <li>Votre maquette est gratuite et sans engagement.</li>
+        <li>Les prix sont affichés : dès 150 €.</li>
+        <li>Vous décidez après avoir vu votre site.</li>
+      </ul>
       <a class="btn btn-light magnetic" href="devis.html">Recevoir ma maquette gratuite <span class="arrow">→</span></a>
-      <a class="ulink" href="mailto:contactmonsite.studio@gmail.com">contactmonsite.studio@gmail.com</a>
-      <a class="ulink" href="https://www.instagram.com/monsite.studio/" target="_blank" rel="noopener">Instagram</a>
     </div>
+    <ul class="ct5-pills" aria-label="Nous contacter">
+      <li><a href="https://www.instagram.com/monsite.studio/" target="_blank" rel="noopener"><span>Instagram</span><b>@monsite.studio</b></a></li>
+      <li><a href="mailto:contactmonsite.studio@gmail.com"><span>E-mail</span><b>contactmonsite.studio<wbr>@gmail.com</b></a></li>
+      <li><a href="devis.html"><span>Formulaire</span><b>Maquette gratuite en 1 minute</b></a></li>
+      <li><a href="realisations.html"><span>Exemples</span><b>Voir nos créations</b></a></li>
+    </ul>
   </section>
 </main>
 

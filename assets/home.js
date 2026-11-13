@@ -6,8 +6,13 @@
   /* ---------- Tarifs : mêmes prix que la page Devis ---------- */
   var pl = document.getElementById('price5');
   if (pl && typeof FORMULES !== 'undefined') {
-    pl.innerHTML = FORMULES.filter(function (f) { return f.prix != null; }).map(function (f) {
-      return '<article class="price5-card' + (f.populaire ? ' top' : '') + '">' + (f.populaire ? '<span class="pop5">Le plus choisi</span>' : '') + '<h3>' + f.nom + '</h3><b>' + (f.des ? '<small>dès</small>' : '') + (f.ancien ? '<del aria-label="au lieu de ' + f.ancien + ' €">' + f.ancien + ' €</del> ' : '') + f.prix + ' €</b><p>' + f.gain + '</p><a class="ulink" href="devis.html">Recevoir ma maquette gratuite</a></article>';
+    var del = function (f) { return f.ancien ? '<del aria-label="au lieu de ' + f.ancien + ' €">' + f.ancien + ' €</del> ' : ''; };
+    pl.innerHTML = FORMULES.filter(function (f) { return f.principale; }).map(function (f) {
+      return '<article class="price5-card"><span class="num5">' + f.num + '</span><h3>' + f.nom + '</h3><b>' + f.prix + ' €' + (f.mois ? '<small>puis ' + f.mois + ' €/mois</small>' : '<small>une fois</small>') + '</b><p>' + f.gain + '</p><ul class="pts5">' + f.pts.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul><a class="ulink" href="devis.html">Recevoir ma maquette gratuite</a></article>';
+    }).join('');
+    var au = document.getElementById('autres5');
+    if (au) au.innerHTML = FORMULES.filter(function (f) { return !f.principale; }).map(function (f) {
+      return '<li><span><b>' + f.nom + '</b>' + f.desc + '</span><em>' + (f.prix == null ? 'Sur devis' : (f.des ? 'dès ' : '') + del(f) + f.prix + ' €') + '</em></li>';
     }).join('');
   }
 
@@ -219,7 +224,7 @@
 (function () {
   var nr = document.getElementById('c-nr'), pr = document.getElementById('c-pr');
   if (!nr || !pr) return;
-  var SITE = 300; // prix du site sur mesure, pour dire en combien de temps il est rentabilisé
+  var SITE = 400; // prix du site livré (formule 1), pour dire en combien de temps il est rentabilisé
   var tot = document.getElementById('c-tot'), txt = document.getElementById('c-txt');
   var fmt = function (n) { return Math.round(n).toLocaleString('fr-FR').replace(/\s/g, ' ') + ' €'; };
   var shown = { v: 0 }, gsap = window.gsap;
@@ -229,8 +234,8 @@
     document.getElementById('c-n').textContent = n;
     document.getElementById('c-p').textContent = p + ' €';
     fill(nr); fill(pr);
-    txt.textContent = mois <= 1 ? 'Un site sur mesure est rentabilisé dès le premier mois.'
-      : 'Un site sur mesure est rentabilisé en ' + mois + ' mois environ, puis tout le reste est pour vous.';
+    txt.textContent = mois <= 1 ? 'Votre site est rentabilisé dès le premier mois.'
+      : 'Votre site est rentabilisé en ' + mois + ' mois environ, puis tout le reste est pour vous.';
     if (gsap && anim !== false) gsap.to(shown, { v: year, duration: .6, ease: 'expo.out', onUpdate: function () { tot.textContent = fmt(shown.v); } });
     else { shown.v = year; tot.textContent = fmt(year); }
   }

@@ -333,3 +333,20 @@ html{overflow-x:clip}
 .ct5-pills b{display:block;margin-top:8px;font-size:16px;font-weight:600;overflow-wrap:normal}
 @media (max-width:900px){.qui5-list{grid-template-columns:1fr}.ct5{grid-template-columns:1fr}}
 @media (max-width:760px){.qui5-cta{flex-direction:column;align-items:stretch;text-align:center;gap:16px}.qui5-cta .btn{width:100%}.ct5-pills{grid-template-columns:1fr}.ct5 .btn{width:100%}.ct5{padding-block:80px 60px}}
+
+/* Tarifs : les 2 formules en avant, puis les autres besoins en liste */
+.price5-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.num5{display:block;margin-bottom:10px;color:var(--accent-2,#CFC4FF);font-size:14px;font-weight:500}
+.price5-card b small{display:block;margin:10px 0 0;font-size:16px}
+.pts5{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:10px}
+.pts5 li{position:relative;padding-left:22px;font-size:15px;line-height:1.4}
+.pts5 li::before{content:"";position:absolute;left:2px;top:.5em;width:9px;height:5px;border-left:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(-45deg);opacity:.7}
+.autres5-t{margin:clamp(48px,5vw,72px) 0 8px;font-size:20px;font-weight:500;letter-spacing:-.01em}
+.autres5{list-style:none;margin:0;padding:0}
+.autres5 li{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.autres5 li span{color:var(--muted);font-size:15px}
+.autres5 li b{display:block;color:var(--fg);font-weight:500;font-size:17px;margin-bottom:4px}
+.autres5 li em{font-style:normal;white-space:nowrap;font-size:17px;font-weight:500}
+.autres5 del{font-size:.8em}
+@media (min-width:761px){.price5 .car-nav{display:none!important}}
+@media (max-width:760px){.autres5 li{flex-direction:column;gap:6px}.autres5-t{margin-top:40px}}

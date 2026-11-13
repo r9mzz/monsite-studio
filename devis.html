@@ -78,7 +78,7 @@
 
       <aside class="panel" aria-live="polite">
         <span class="mono" id="price-k">Votre estimation</span>
-        <div class="price" id="price">300 €</div>
+        <div class="price" id="price">400 €</div>
         <p class="gain-l" id="gain"></p>
         <p class="roi" id="roi"></p>
         <ul class="lines" id="lines"></ul>
@@ -115,17 +115,17 @@
   </div>
 </footer>
 
-<script src="assets/tarifs.js?v=22"></script>
+<script src="assets/tarifs.js?v=23"></script>
 <script>
 (function () {
   var fmt = function (n) { return n.toLocaleString('fr-FR').replace(/ | /g, ' '); };
   var money = function (p) { return p == null ? 'Sur devis' : fmt(p) + ' €'; };
-  var from = function (f) { return f.prix == null ? 'Sur devis' : (f.des ? 'Dès ' : '') + (f.ancien ? '<del aria-label="au lieu de ' + fmt(f.ancien) + ' €">' + fmt(f.ancien) + ' €</del> ' : '') + fmt(f.prix) + ' €'; };
+  var from = function (f) { return f.prix == null ? 'Sur devis' : (f.des ? 'Dès ' : '') + (f.ancien ? '<del aria-label="au lieu de ' + fmt(f.ancien) + ' €">' + fmt(f.ancien) + ' €</del> ' : '') + fmt(f.prix) + ' €' + (f.mois ? ' puis ' + fmt(f.mois) + ' €/mois' : ''); };
   var plus = function (p) { return p == null ? 'Sur devis' : '+ ' + fmt(p) + ' €'; };
 
   document.getElementById('formule').innerHTML = FORMULES.map(function (f) {
     return '<label class="tile"><input type="radio" name="formule" id="f-' + f.id + '" value="' + f.id + '"' + (f.id === DEFAULT_FORMULE ? ' checked' : '') + '>' +
-      '<span class="in">' + (f.populaire ? '<i class="pop">Le plus populaire</i>' : '') + '<b>' + f.nom + '</b><span class="gain">' + f.gain + '</span><small>' + f.desc + '</small><em>' + from(f) + '</em></span></label>';
+      '<span class="in">' + (f.populaire ? '<i class="pop">Le plus populaire</i>' : '') + '<b>' + (f.num ? f.num + ' · ' : '') + f.nom + '</b><span class="gain">' + f.gain + '</span><small>' + f.desc + '</small><em>' + from(f) + '</em></span></label>';
   }).join('');
   var optBox = document.getElementById('options');
   if (optBox) optBox.innerHTML = OPTIONS.map(function (o) {
@@ -151,7 +151,7 @@
   var priceEl = document.getElementById('price');
   function render() {
     var s = state();
-    priceEl.innerHTML = money(s.tot) + (s.open ? '<small>+ options</small>' : '');
+    priceEl.innerHTML = money(s.tot) + (s.f.mois ? '<small>puis ' + fmt(s.f.mois) + ' €/mois</small>' : '') + (s.open ? '<small>+ options</small>' : '');
     document.getElementById('price-k').textContent = s.f.des ? 'Votre estimation, à partir de' : 'Votre estimation';
     document.getElementById('gain').textContent = s.f.gain;
     // le prix traduit en clients : « le prix de N clients »
@@ -197,7 +197,7 @@
     var recap = 'Bonjour,\n' +
       'Je suis ' + v('prenom') + ', de ' + v('commerce') + ' (' + metier + ').\n' +
       'Site : ' + s.f.nom + '\n' +
-      'Estimation : ' + (s.f.des ? 'à partir de ' : '') + money(s.tot) + (s.open ? ' + options sur devis' : '') + '\n' +
+      'Estimation : ' + (s.f.des ? 'à partir de ' : '') + money(s.tot) + (s.f.mois ? ' puis ' + fmt(s.f.mois) + ' €/mois' : '') + (s.open ? ' + options sur devis' : '') + '\n' +
       (s.promo ? 'Code promo : ' + s.promo.code + ' (-' + s.promo.remise + ' %)\n' : (s.code ? 'Code promo : ' + s.code + ' (non reconnu)\n' : '')) +
       'Contact : ' + v('contact') + (v('message') ? '\nMessage : ' + v('message') : '');
     document.getElementById('recap').textContent = recap;

@@ -350,3 +350,9 @@ html{overflow-x:clip}
 .autres5 del{font-size:.8em}
 @media (min-width:761px){.price5 .car-nav{display:none!important}}
 @media (max-width:760px){.autres5 li{flex-direction:column;gap:6px}.autres5-t{margin-top:40px}}
+.regles5{list-style:none;margin:clamp(28px,3vw,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g3,24px)}
+.regles5 li{display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:1px solid var(--line)}
+.regles5 b{font-weight:500;font-size:16px}
+.regles5 span{color:var(--muted);font-size:14px;line-height:1.45}
+@media (max-width:900px){.regles5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.regles5{grid-template-columns:1fr;gap:4px}.regles5 li{padding-block:14px 4px}}

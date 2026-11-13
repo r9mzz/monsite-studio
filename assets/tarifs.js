@@ -7,9 +7,8 @@ var FORMULES = [
   { id: 'livre', principale: true, num: 'Formule 1', nom: 'Site livré', gain: 'Le site est à vous, vous le gérez vous-même.', desc: 'Votre site créé et livré, avec un espace simple pour changer vos photos et vos textes.', prix: 400,
     pts: ['Votre site, sur téléphone et ordinateur', 'Un espace simple pour changer vos photos et vos textes', 'Nom de domaine à votre nom, à votre charge', 'Grosse modification sur demande : 20 €'] },
   { id: 'suivi', principale: true, num: 'Formule 2', nom: 'Site suivi', gain: 'On s’occupe de tout, vous n’avez rien à gérer.', desc: 'Création à 250 €, puis 50 € par mois : hébergement, nom de domaine et modifications compris.', prix: 250, mois: 50,
-    pts: ['Création du site : 250 €', 'Hébergement et nom de domaine compris', 'Vos modifications faites vite, sur simple message', 'Sans engagement, un mois de préavis'] },
+    pts: ['Création du site : 250 €', 'Hébergement et nom de domaine compris', 'Vos modifications faites vite, sur simple message', 'Sans engagement, un mois de préavis', 'Vous arrêtez ? Gardez votre site pour 150 €'] },
   { id: 'renovation', nom: 'Rénovation', gain: 'Vos visiteurs restent au lieu de repartir.', desc: 'Votre site actuel remis au goût du jour et rapide sur téléphone. Le prix dépend de ce qu’il faut refaire.', prix: 150, ancien: 200, des: true },
-  { id: 'premium', nom: 'Site premium', gain: 'Vous sortez du lot : on se souvient de vous et on vous choisit.', desc: 'Des animations et une mise en scène haut de gamme.', prix: 400, ancien: 500, des: true },
   { id: '3d', nom: 'Site 3D, application', gain: 'Une vitrine unique, qui fait parler de vous.', desc: '3D, vidéo, application, animations avancées : chaque projet est chiffré avec vous.', prix: null }
 ];
 var OPTIONS = [
